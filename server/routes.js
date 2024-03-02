@@ -34,7 +34,7 @@ app.get("/contact", (req, res) => {
 })
 
 // GET 'about.html'-About Us page from dir 'views':
-app.get("/contact", (req, res) => {
+app.get("/about", (req, res) => {
     const filePath = path.join(".", "test-views", "about.html")
     fs.readFile(filePath, 'utf8',
         function(err, data) {   
@@ -51,6 +51,6 @@ app.get("/help", (req, res) => {
     });
 })
 
-app.listen(3000, () => {
-    console.log("SandBox on port 3000")
+app.listen(3001, () => {
+    console.log("SandBox on port 3001")
 })

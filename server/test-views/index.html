@@ -73,8 +73,12 @@
         <hr />
         <br />
         <div id="protest-filters">
-          <button>Upcoming protests</button>
-          <button>Past protests</button>
+          <form action="/protests" method="GET">
+            <button>Upcoming protests</button>
+          </form>
+          <form action="/protests" method="GET">
+            <button>Past protests</button>
+          </form>
           <button><s>MAP</s></button>
         </div>
         <hr />

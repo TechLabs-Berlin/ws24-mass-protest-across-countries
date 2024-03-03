@@ -22,9 +22,9 @@ node routes.js
 
 ### 2. Local server
 
-The server runs on the local port 8080. To access the landing page, type this address in your browser:
+The server runs on the local port 3001. To access the landing page, type this address in your browser:
 
-- https://localhost:3000
+- https://localhost:3001
 
 ### 3. Usage
 

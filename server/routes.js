@@ -51,6 +51,24 @@ app.get("/help", (req, res) => {
     });
 })
 
+// GET 'login.html'-form from dir 'views':
+app.get("/login", (req, res) => {
+    const filePath = path.join(".", "test-views", "login.html")
+    fs.readFile(filePath, 'utf8',
+        function(err, data) {   
+            res.send(data)
+    });
+})
+
+// POST login-request and redirect to index.html in dir 'views':
+app.post("/", (req, res) => {
+    const filePath = path.join(".", "test-views", "index.html")
+    fs.readFile(filePath, 'utf8',
+        function(err, data) {   
+            res.send("<h1>YOU ARE LOGGED IN!</h1>")
+    });
+})
+
 app.listen(3001, () => {
     console.log("SandBox on port 3001")
 })

@@ -70,5 +70,5 @@ app.post("/", (req, res) => {
 })
 
 app.listen(3001, () => {
-    console.log("SandBox on port 3001")
+    console.log("FindMyProtest on port 3001")
 })

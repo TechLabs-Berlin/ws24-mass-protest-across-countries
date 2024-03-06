@@ -6,7 +6,7 @@ const path = require("path");
 // Define directory where static files will be located:
 app.use("/static", express.static(path.join(__dirname, "public")));
 
-// GET 'index.html'-Homepage from dir 'templates':
+// GET 'index.html'-Homepage from dir 'test-views':
 app.get("/", (req, res) => {
     const filePath = path.join(".", "test-views", "index.html")
         fs.readFile(filePath, 'utf8',
@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
     });
 })
 
-// GET 'protests.html'-actual/past protests list page from dir 'views':
+// GET 'protests.html'-actual/past protests list page from dir 'test-views':
 app.get("/protests", (req, res) => {
         const filePath = path.join(".", "test-views", "protests.html")
         fs.readFile(filePath, 'utf8',
@@ -24,7 +24,7 @@ app.get("/protests", (req, res) => {
         });
 })
 
-// GET 'contact.html'-contact page from dir 'views':
+// GET 'contact.html'-contact page from dir 'test-views':
 app.get("/contact", (req, res) => {
     const filePath = path.join(".", "test-views", "contact.html")
     fs.readFile(filePath, 'utf8',
@@ -33,7 +33,7 @@ app.get("/contact", (req, res) => {
     });
 })
 
-// GET 'about.html'-About Us page from dir 'views':
+// GET 'about.html'-About Us page from dir 'test-views':
 app.get("/about", (req, res) => {
     const filePath = path.join(".", "test-views", "about.html")
     fs.readFile(filePath, 'utf8',
@@ -42,7 +42,7 @@ app.get("/about", (req, res) => {
     });
 })
 
-// GET 'help.html'-contact page from dir 'views':
+// GET 'help.html'-contact page from dir 'test-views':
 app.get("/help", (req, res) => {
     const filePath = path.join(".", "test-views", "help.html")
     fs.readFile(filePath, 'utf8',
@@ -51,7 +51,7 @@ app.get("/help", (req, res) => {
     });
 })
 
-// GET 'login.html'-form from dir 'views':
+// GET 'login.html'-form from dir 'test-views':
 app.get("/login", (req, res) => {
     const filePath = path.join(".", "test-views", "login.html")
     fs.readFile(filePath, 'utf8',
@@ -60,7 +60,7 @@ app.get("/login", (req, res) => {
     });
 })
 
-// POST login-request and redirect to index.html in dir 'views':
+// POST login-request and redirect to index.html in dir 'test-views':
 app.post("/", (req, res) => {
     const filePath = path.join(".", "test-views", "index.html")
     fs.readFile(filePath, 'utf8',

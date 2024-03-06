@@ -17,7 +17,7 @@ cd server
 npm i node express
 
 # START SERVER
-node routes.js
+node server.js
 ```
 
 ### 2. Local server
@@ -36,7 +36,7 @@ Install nodemon, then refresh the page (or type Enter) for the Node server to au
 npm i nodemon
 
 # START SERVER
-nodemon routes.js
+nodemon server.js
 ```
 
 ### 4. Author

@@ -3,6 +3,9 @@ const app = express();
 const fs = require("fs");
 const path = require("path");
 
+// Define directory where static files will be located:
+// app.use("/static", express.static(path.join(__dirname, "public")));
+
 // GET 'index.html'-Homepage from dir 'test-views':
 app.get("/", (req, res) => {
     const filePath = path.join(".", "test-views", "index.html")

@@ -69,6 +69,6 @@ app.post("/", (req, res) => {
     });
 })
 
-app.listen(3001, () => {
-    console.log("FindMyProtest on port 3001")
+app.listen(8000, () => {
+    console.log("Server on port 8000")
 })

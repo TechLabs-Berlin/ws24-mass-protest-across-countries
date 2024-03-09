@@ -2,43 +2,67 @@
 
 Find my Protest is a platform which displays historical and future protest data, allowing users to find events in Berlin based on their search criteria. Additionally, the platform can predict the mood, opinions, and reactions of the public towards protests.
 
-## Backend
+## Routing: Frontend and Backend
 
-### 1. Installation
+Frontend routes constitute public, user-accessible URLs visible on the front end. In contrast, backend routes are inaccessible directly to users; instead, they serve as endpoints for the frontend to utilize in making API calls.
 
-The backend server runs using Express on NodeJS. To load it on your local machine, type the following commands in your terminal:
+### 1. Running the project:
+
+Clone the project's repository to your local machine by typing the following command in your terminal:
 
 ```bash
 # CLONE REPOSITORY
 git clone https://github.com/TechLabs-Berlin/ws24-mass-protest-across-countries.git
+```
+
+### 2. Starting the React client:
+
+Open the `./client/` folder, install dependencies and start the React app by typing the following commands in your terminal:
+
+```bash
+# OPEN CLIENT FOLDER
+cd client
+
+# INSTALL DEPENDENCIES
+npm i
+
+# START REACT CLIENT
+npm start
+```
+
+### 3. Starting the Express server:
+
+Open the `./server/` folder, install dependencies and start the Express server app with the following terminal commands:
+
+```bash
+# OPEN SERVER FOLDER
 cd server
 
 # INSTALL DEPENDENCIES
-npm i node express
+npm i
 
-# START SERVER
-node server.js
+# START EXPRESS SERVER
+nodemon index.js
 ```
 
-### 2. Local server
+### 4. Navigating the Web App:
 
-The server runs on the local port 8000. To access the landing page, type this address in your browser:
+The React client runs on port 3000 in your local browser. To access the landing page, type the following address in your browser:
+
+- https://localhost:3000
+
+As shown in `./client/src/App.js`, the URLs path that can be accessed are '/', '/test-api' and /protests.
+
+### 5. Navigating the API server:
+
+The Express server runs on local port 8000. To access the api langing page, type this address in your browser:
 
 - https://localhost:8000
 
-### 3. Usage
+As indicated in `./server/index.js`, accessible paths are '/', '/api/test' and /api/protests.
 
-Install nodemon, then refresh the page (or type Enter) for the Node server to automatically restart after a code update to see the visual changes on the page:
+After running `nodemon index.js` once, the Express api server will automatically restart whenever `Save` or `Enter` is typed.
 
-```bash
-
-# INSTALL NODEMON
-npm i nodemon
-
-# START SERVER
-nodemon server.js
-```
-
-### 4. Author
+### 6. Author
 
 Lydie Kouang

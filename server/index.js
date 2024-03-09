@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const path = require("path");
+const ExpressError = require("./utils/ExpressError");
 
 // Middleware to solve CORS issue:
 app.use(function(req, res, next) {
@@ -12,19 +12,31 @@ app.use(function(req, res, next) {
 // Test server successful connecton:
 app.get('/', (req, res) => {
 	console.log('Test connection');
-	res.send('Server is successfully connected!');
+	res.send('Server connected!');
 })
 
-// Test API fetching by frontend with random number:
+// Test api fetching by frontend with random number:
 app.get('/api/test', (req, res) => {
 	let randomNumber = Math.floor(Math.random() * 100);
-	console.log('random number generated is:', randomNumber);
+	console.log(`Your random number is: ${randomNumber}`);
 	res.send(randomNumber.toString());
 })
 
 // GET api for ProtesList page:
 app.get("/api/protests", (req, res) => {
-                res.send("Upcoming protests:")
+    res.send("Protests data fetched!")
+})
+
+// Error handling middleware:
+app.all("*", (req, res, next) => {
+    next(new ExpressError("Server not found!", 404))
+})
+
+// Default error handler:
+app.use((err, req, res) => {
+    const { statusCode = 500 } = err;
+    if(!err.message) err.message = "Something went Wrong!"
+    res.status(statusCode).render("error", { err })
 })
 
 app.listen(8000, () => {

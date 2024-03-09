@@ -1,18 +1,11 @@
 const express = require("express");
 const app = express();
-const fs = require("fs");
 const path = require("path");
 
-// Define directory where static files will be located:
-// app.use("/static", express.static(path.join(__dirname, "public")));
-
-// GET 'index.html'-Homepage from dir 'test-views':
-app.get("/", (req, res) => {
-    const filePath = path.join(".", "test-views", "index.html")
-        fs.readFile(filePath, 'utf8',
-        function(err, data) {   
-            res.send(data)
-    });
+// Test server successful connecton:
+app.get('/', (req, res) => {
+	console.log('Test connection');
+	res.send('Server is successfully connected!');
 })
 
 // GET 'protests.html'-actual/past protests list page from dir 'test-views':

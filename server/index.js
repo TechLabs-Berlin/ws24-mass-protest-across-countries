@@ -22,13 +22,9 @@ app.get('/api/test', (req, res) => {
 	res.send(randomNumber.toString());
 })
 
-// GET 'protests.html'-actual/past protests list page from dir 'test-views':
-app.get("/protests", (req, res) => {
-        const filePath = path.join(".", "test-views", "protests.html")
-        fs.readFile(filePath, 'utf8',
-            function(err, data) {   
-                res.send(data)
-        });
+// GET api for ProtesList page:
+app.get("/api/protests", (req, res) => {
+                res.send("Upcoming protests:")
 })
 
 app.listen(8000, () => {

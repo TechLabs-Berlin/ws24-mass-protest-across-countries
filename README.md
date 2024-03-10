@@ -41,8 +41,13 @@ cd server
 # INSTALL DEPENDENCIES
 npm i
 
+# INSTALL NODEMON
+npm i nodemon
+
 # START EXPRESS SERVER
 nodemon index.js
+# or
+node index.js
 ```
 
 ### 4. Navigating the Web App:

@@ -1,4 +1,4 @@
-import SearchBar from "./SearchBar";
+import NavBar from "./NavBar";
 export default function LandingPage() {
   return (
     <div>
@@ -15,7 +15,7 @@ export default function LandingPage() {
         </div>
         <hr />
         <div>
-          <SearchBar />
+          <NavBar />
         </div>
         <div id="search-buttons">
           <div id="inner-navigation">

@@ -11,7 +11,7 @@ export default function ProtestsPage() {
                 const response = await axios.get(DEV_URL + "api/protests/");
                 const  protestData = response.data.slice(0, 10)
                 for (let protest of protestData) {
-                    let { date, topic, postcode } = protest          
+                    let { event_date, district, categories, description } = protest  
                 }
                 setData(protestData)
                 console.log(protestData)            
@@ -29,13 +29,14 @@ export default function ProtestsPage() {
 
       return (
         <div>
-            <h1>Upcoming Protests</h1>
+            <h1>Protests in 2024 </h1>
             <ul>
                 {data.map((item, index) => (
                     <li key={index[0]}>
-                        When: {item.date}<br/>
-                        Where: {item.postcode}<br/>
-                        What: {item.topic}<br/><br/>
+                        Date: {item.event_date}<br/>
+                        District: {item.district}<br/>
+                        Theme: {item.categories}<br/>
+                        Description: {item.description}<br/><br/>
                     </li>
                 ))}
             </ul> 

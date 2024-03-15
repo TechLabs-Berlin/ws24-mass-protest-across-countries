@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import LandingPage from "./components/LandingPage";
-import ApiTestPage from "./components/ApiTestPage";
-import ProtestsPage from "./components/ProtestsPage";
+import LandingPage from "./pages/LandingPage";
+import ApiTestPage from "./pages/ApiTestPage";
+import ProtestsPage from "./pages/ProtestPage";
 import NavBar from "./components/NavBar";
 
 // There are various different kinds of routers in the React Router Dom package.
@@ -16,7 +16,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/api-test" element={<ApiTestPage />} />
-          <Route path="/protests" element={<ProtestsPage />} />
+          <Route path="/protest" element={<ProtestPage />} />
         </Routes>
       </BrowserRouter>
     </div>

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const ExpressError = require("./utils/ExpressError");
-const getProtest = require("./utils/api");
+const getProtest = require("./utils/GetProtest");
 
 // Connect to MongoDB:
 mongoose.connect("mongodb://localhost:27017/fm-protest");
@@ -33,8 +33,8 @@ app.get('/api/test', (req, res) => {
 	res.send(randomNumber.toString());
 })
 
-// GET api for ProtesList page:
-app.get("/api/protests", getProtest)
+// GET api for ProtestPage:
+app.get("/api/protest", getProtest)
 
 // Error handling middleware:
 app.all("*", (req, res, next) => {

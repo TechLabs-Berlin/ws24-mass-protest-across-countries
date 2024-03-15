@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import DropDowns from './Protest/DropDowns';
-import ProtestList from './Protest/ProtestList';
-import YearSelector from './Protest/YearSelector';
+import DropDowns from './components/protest/DropDowns';
+import ProtestList from './components/protest/ProtestList';
+import YearSelector from './components/protest/YearSelector';
 
 const DEV_URL = "http://localhost:8000/";
 const list_year = [2023, 2024];

@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function YearSelector({ years, onYearSelect }) {
+function YearSelector({ years, onYearSelect }) {
     return (
         <div>
             <label htmlFor="year-select">Year: </label>
@@ -16,3 +14,5 @@ export default function YearSelector({ years, onYearSelect }) {
         </div>
     );
 }
+
+export default YearSelector;

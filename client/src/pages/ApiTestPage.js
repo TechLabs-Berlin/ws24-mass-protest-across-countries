@@ -5,7 +5,7 @@ import axios from "axios";
 
 const DEV_URL = "http://localhost:8000/";
 
-export default function ApiTestPage() {
+function ApiTestPage() {
   const getRandomNumber = async () => {
     try {
       let response = await axios.get(DEV_URL + "api/test/");
@@ -23,3 +23,5 @@ export default function ApiTestPage() {
     </div>
   );
 }
+
+export default ApiTestPage;

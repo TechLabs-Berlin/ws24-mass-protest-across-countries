@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import DropDowns from './components/protest/DropDowns';
-import ProtestList from './components/protest/ProtestList';
-import YearSelector from './components/protest/YearSelector';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import Dropdowns from "../components/protest/Dropdowns";
+import ProtestList from "../components/protest/ProtestList";
+import YearSelector from "../components/protest/YearSelector";
 
 const DEV_URL = "http://localhost:8000/";
 const list_year = [2023, 2024];
 const list_categories = [""];
 const district = [""];
 
-export default function ProtestPage() {
+function ProtestPage() {
     const [data, setData] = useState([]);
     const [selectedYear, setSelectedYear] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
@@ -44,7 +44,7 @@ export default function ProtestPage() {
 
     return (
         <div>
-            <DropDowns
+            <Dropdowns
                 selectedDistrict={selectedDistrict}
                 selectedCategory={selectedCategory}
                 setSelectedDistrict={setSelectedDistrict}
@@ -55,3 +55,5 @@ export default function ProtestPage() {
         </div>
     );
 }
+
+export default ProtestPage;

@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function ProtestList({ data }) {
+function ProtestList({ data }) {
     const formatDate = (isoDate) => {
         const date = new Date(isoDate);
         return date.toLocaleDateString();
@@ -20,3 +18,5 @@ export default function ProtestList({ data }) {
         </div>
     );
 }
+
+export default ProtestList;

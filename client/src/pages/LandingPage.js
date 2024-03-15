@@ -1,9 +1,9 @@
 import ProtestPage from "./ProtestPage";
 
-export default function LandingPage() {
+function LandingPage() {
     return (
       <div>
-          <h1>Homepage</h1>
+          <hr />
         <main>
           <hr></hr>
           <br></br>
@@ -37,3 +37,5 @@ export default function LandingPage() {
       </div>
         )
   }
+
+export default LandingPage;

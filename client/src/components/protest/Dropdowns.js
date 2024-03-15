@@ -1,6 +1,4 @@
-import React from 'react';
-
-export default function DropDowns({ selectedDistrict, selectedCategory, setSelectedDistrict, setSelectedCategory }) {
+function Dropdowns({ selectedDistrict, selectedCategory, setSelectedDistrict, setSelectedCategory }) {
     return (
         <div>
             <div>
@@ -43,3 +41,5 @@ export default function DropDowns({ selectedDistrict, selectedCategory, setSelec
         </div>
     );
 }
+
+export default Dropdowns;

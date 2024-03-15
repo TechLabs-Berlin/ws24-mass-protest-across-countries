@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ApiTestPage from "./pages/ApiTestPage";
-import ProtestsPage from "./pages/ProtestPage";
+import ProtestPage from "./pages/ProtestPage";
 import NavBar from "./components/NavBar";
 
 // There are various different kinds of routers in the React Router Dom package.

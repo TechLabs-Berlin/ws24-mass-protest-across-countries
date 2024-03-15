@@ -30,7 +30,7 @@ npm i
 npm start
 ```
 
-### 3. Starting the Express server:
+### 3. Starting the Express server and connecting to MongoDB:
 
 Open the `./server/` folder, install dependencies and start the Express server app with the following terminal commands:
 
@@ -41,8 +41,8 @@ cd server
 # INSTALL DEPENDENCIES
 npm i
 
-# INSTALL NODEMON
-npm i nodemon
+# LOAD DATA IN MongoDB
+node dbs.js image.js
 
 # START EXPRESS SERVER
 nodemon index.js
@@ -67,7 +67,3 @@ The Express server runs on local port 8000. To access the api langing page, type
 As indicated in `./server/index.js`, accessible paths are '/', '/api/test' and /api/protests.
 
 After running `nodemon index.js` once, the Express api server will automatically restart whenever `Save` or `Enter` is typed.
-
-### 6. Author
-
-Lydie Kouang

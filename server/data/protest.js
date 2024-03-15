@@ -23,6 +23,7 @@ const protestSchema = new Schema({
     crowd_size: String,
     longitude: Number,
     latitude: Number,
+    imageUrl: String,
   });
   
 // Create model and export:

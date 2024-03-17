@@ -1,6 +1,7 @@
 import SearchBar from "./SearchBar";
 import BannerCarousel from "./BannerCarousel";
 import ProtestCard from "./ProtestCard";
+import NavBar from "./NavBar";
 export default function LandingPage() {
   return (
     <div>
@@ -10,7 +11,7 @@ export default function LandingPage() {
         </div>
 
         <div>
-          <SearchBar />
+          <NavBar />
         </div>
         <div id="search-buttons">
           <div id="inner-navigation">

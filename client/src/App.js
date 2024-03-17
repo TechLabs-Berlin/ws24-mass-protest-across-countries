@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import ApiTestPage from "./pages/ApiTestPage";
 import ProtestPage from "./pages/ProtestPage";
 import NavBar from "./components/NavBar";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 // There are various different kinds of routers in the React Router Dom package.
 // Within the router, routes can be set up by declaring individual routes with a URL path and the component to be

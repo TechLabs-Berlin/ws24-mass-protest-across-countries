@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
 import ApiTestPage from "./pages/ApiTestPage";
-import ProtestPage from "./pages/ProtestPage";
 import NavBar from "./components/NavBar";
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -17,7 +16,6 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/api-test" element={<ApiTestPage />} />
-          <Route path="/protest" element={<ProtestPage />} />
         </Routes>
       </BrowserRouter>
     </div>

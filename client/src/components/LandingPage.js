@@ -1,19 +1,14 @@
 import SearchBar from "./SearchBar";
+import BannerCarousel from "./BannerCarousel";
+import ProtestCard from "./ProtestCard";
 export default function LandingPage() {
   return (
     <div>
-      <hr />
       <main>
         <div id="banner">
-          <br />
-          <br />
-          <br />
-          BANNER/Carrousel?
-          <br />
-          <br />
-          <br />
+          <BannerCarousel />
         </div>
-        <hr />
+
         <div>
           <SearchBar />
         </div>
@@ -63,20 +58,7 @@ export default function LandingPage() {
           <br />
           <div id="protest-cards">
             <div>
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <p>Protest info cards area</p>
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
-              <br />
+              <ProtestCard />
             </div>
           </div>
         </div>

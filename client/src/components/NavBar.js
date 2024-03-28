@@ -19,7 +19,7 @@ function NavBar() {
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
             <NavDropdown title="Protests" id="collapsible-nav-dropdown">
-              <NavDropdown.Item href="/upcpming-protests">
+              <NavDropdown.Item href="/upcoming-protests">
                 Upcoming Protests
               </NavDropdown.Item>
               <NavDropdown.Item href="/past-protest">

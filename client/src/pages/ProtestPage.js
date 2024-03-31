@@ -12,9 +12,11 @@ const district = [""];
 
 function ProtestPage() {
     const [data, setData] = useState([]);
+    const [originalData, setOriginalData] = useState([]); // Store original data
     const [selectedYear, setSelectedYear] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
+    const [searchActive, setSearchActive] = useState(false); // Track if search is active
 
     const getProtestList = async () => {
         try {
@@ -29,6 +31,7 @@ function ProtestPage() {
             const response = await axios.get(DEV_URL + "api/protest" + url_param);
             const protestData = response.data.slice(0, 10);
             setData(protestData);
+            setOriginalData(protestData); // Update original data when fetching
             console.log(protestData);
         } catch (err) {
             console.log(err.message);
@@ -46,6 +49,16 @@ function ProtestPage() {
     //state function to trigger data search:
     const handleSearchSubmit = async (searchData) => {
         setData(searchData);
+        setSearchActive(true); // Set search as active
+    };
+
+    //state function to reset filters:
+    const handleResetFilters = () => {
+        setSelectedYear("");
+        setSelectedCategory("");
+        setSelectedDistrict("");
+        setSearchActive(false); // Clear search and set as inactive
+        setData(originalData); // Restore original data when resetting filters
     };
 
     return (
@@ -58,7 +71,10 @@ function ProtestPage() {
                 setSelectedCategory={setSelectedCategory}
             />
             <YearSelector years={list_year} onYearSelect={handleYearSelect} />
-            <ProtestList data={data} />
+            <div> 
+                <button onClick={handleResetFilters}>Clear</button>
+            </div>
+            <ProtestList data={searchActive ? data : originalData} /> {/* Conditionally render based on searchActive state */}
         </div>
     );
 }

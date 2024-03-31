@@ -3,6 +3,7 @@ import axios from "axios";
 import Dropdowns from "../components/protest/Dropdowns";
 import ProtestList from "../components/protest/ProtestList";
 import YearSelector from "../components/protest/YearSelector";
+import SearchBar from '../components/SearchBar';
 
 const DEV_URL = "http://localhost:8000/";
 const list_year = [2023, 2024];
@@ -38,12 +39,18 @@ function ProtestPage() {
         getProtestList();
     }, [selectedYear, selectedCategory, selectedDistrict]); // Add selected values as dependencies to trigger the effect when they change
     
+    //state function to filter by year:
     const handleYearSelect = async (year) => {
         setSelectedYear(year);
+    };
+    //state function to trigger data search:
+    const handleSearchSubmit = async (searchData) => {
+        setData(searchData);
     };
 
     return (
         <div>
+            <SearchBar onSubmit={handleSearchSubmit}/>
             <Dropdowns
                 selectedDistrict={selectedDistrict}
                 selectedCategory={selectedCategory}

@@ -2,6 +2,7 @@ const mongoose = require("mongoose");
 const express = require("express");
 const ExpressError = require("./utils/ExpressError");
 const getProtest = require("./utils/GetProtest");
+const searchProtest = require("./utils/SearchProtest");
 
 // Connect to MongoDB:
 mongoose.connect("mongodb://localhost:27017/fm-protest");
@@ -35,6 +36,9 @@ app.get('/api/test', (req, res) => {
 
 // GET api for ProtestPage:
 app.get("/api/protest", getProtest)
+
+// GET api for SearchBar:
+app.get("/api/protest/search", searchProtest)
 
 // Error handling middleware:
 app.all("*", (req, res, next) => {

@@ -22,11 +22,7 @@ function ProtestList({ data }) {
         {data.map((item, index) => (
           <Col key={index}>
             <Card>
-              <Card.Img
-                src="https://source.unsplash.com/random/?protests"
-                alt="random protest image"
-                height={200}
-              />
+              <Card.Img src={item.imageUrl} alt="random protest image" />
               <CardBody>
                 <CardTitle> {formatDate(item.event_date)}</CardTitle>
 

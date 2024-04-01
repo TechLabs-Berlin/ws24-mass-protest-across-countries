@@ -13,8 +13,16 @@ function ProtestList({ data }) {
     const date = new Date(isoDate);
     return date.toLocaleDateString();
   };
-  const [show, setShow] = useState(true);
-  const toggleShow = () => setShow(!show);
+
+  // Initialize state to manage <Toast> visibility for each card
+  const [showToast, setShowToast] = useState(Array(data.length).fill(false));
+
+  // Function to toggle <Toast> visibility for one card
+  const toggleToast = (index) => {
+    const newShowToast = [...showToast];
+    newShowToast[index] = !newShowToast[index];
+    setShowToast(newShowToast);
+  };
 
   return (
     <div>
@@ -30,10 +38,14 @@ function ProtestList({ data }) {
                   <ListGroup.Item>Theme: {item.categories}</ListGroup.Item>
                   <ListGroup.Item>District: {item.district}</ListGroup.Item>
                 </ListGroup>
-                <Button onClick={toggleShow} variant="danger">
+                <Button onClick={() => toggleToast(index)} variant="danger">
                   More Info
                 </Button>
-                <Toast onClose={toggleShow} show={show} animation={false}>
+                <Toast
+                  onClose={() => toggleToast(index)} // Trigger individual toggle
+                  show={showToast[index]}
+                  animation={false}
+                >
                   <Toast.Header>
                     <img
                       src="holder.js/20x20?text=%20"

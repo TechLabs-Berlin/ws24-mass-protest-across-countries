@@ -1,16 +1,14 @@
 function YearSelector({ years, onYearSelect }) {
     return (
         <div>
-            <label htmlFor="year-select">Year: </label>
-            <select id="year-select" onChange={(e) => onYearSelect(e.target.value)}>
-                <option value="">-- Select Year --</option>
-                {years.map(year => (
-                    <option key={year} value={year}>{year}</option>
-                ))}         
-            </select>
-            <br/>
-            <br/>
-            <hr />
+            <label htmlFor="year-select">
+                <select id="year-select" onChange={(e) => onYearSelect(e.target.value)}>
+                    <option value="">Past protests</option>
+                    {years.map(year => (
+                        <option key={year} value={year}>{year}</option>
+                    ))}         
+                </select>
+            </label>
         </div>
     );
 }

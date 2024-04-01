@@ -33,10 +33,12 @@ function ProtestList({ data }) {
               <Card.Img src={item.imageUrl} alt="random protest image" />
               <CardBody>
                 <CardTitle> {formatDate(item.event_date)}</CardTitle>
-
                 <ListGroup variant="flush">
                   <ListGroup.Item>Theme: {item.categories}</ListGroup.Item>
                   <ListGroup.Item>District: {item.district}</ListGroup.Item>
+                  {/* Additionally displayable: */}
+                  <ListGroup.Item>Mood: {item.mood}</ListGroup.Item>
+                  <ListGroup.Item>Crowd size: {item.crowd_size} people</ListGroup.Item>
                 </ListGroup>
                 <Button onClick={() => toggleToast(index)} variant="danger">
                   More Info

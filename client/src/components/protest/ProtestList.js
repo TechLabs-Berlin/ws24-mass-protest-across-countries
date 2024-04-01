@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import Col from "react-bootstrap/Col";
 import CardTitle from "react-bootstrap/esm/CardTitle";
@@ -14,14 +14,21 @@ function ProtestList({ data }) {
     return date.toLocaleDateString();
   };
 
-  // Initialize state to manage <Toast> visibility for each card
-  const [showToast, setShowToast] = useState(Array(data.length).fill(false));
+  // Initialize state for managing toast visibility for each card
+  const [showToast, setShowToast] = useState([]);
 
-  // Function to toggle <Toast> visibility for one card
+  // Initialize state when data changes
+  useEffect(() => {
+    setShowToast(Array(data.length).fill(false));
+  }, [data]);
+
+  // Function to toggle toast visibility for a specific card
   const toggleToast = (index) => {
-    const newShowToast = [...showToast];
-    newShowToast[index] = !newShowToast[index];
-    setShowToast(newShowToast);
+    setShowToast((prevShowToast) => {
+      const newShowToast = [...prevShowToast];
+      newShowToast[index] = !newShowToast[index];
+      return newShowToast;
+    });
   };
 
   return (

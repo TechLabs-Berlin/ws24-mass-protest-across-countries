@@ -3,12 +3,11 @@ function Dropdowns({ selectedDistrict, selectedCategory, setSelectedDistrict, se
         <div>
             <div>
                 <label>
-                    Location: 
                     <select value={selectedDistrict} onChange={(e) => setSelectedDistrict(e.target.value)}>
-                        <option value="">-- Select District --</option>
+                        <option value="">Location</option>
                         <option value="Charlottenburg-Wilmersdorf">Charlottenburg-Wilmersdorf</option>
                         <option value="Friedrichshain-Kreuzberg">Friedrichshain-Kreuzberg</option>
-                        <option value="Lichtenberg">Lichtenberg-Hohenschönhausen</option>
+                        <option value="Lichtenberg">Lichtenberg</option>
                         <option value="Marzahn-Hellersdorf">Marzahn-Hellersdorf</option>
                         <option value="Mitte">Mitte</option>
                         <option value="Neukolln">Neukölln</option>
@@ -21,12 +20,10 @@ function Dropdowns({ selectedDistrict, selectedCategory, setSelectedDistrict, se
                      </select>
                 </label>
             </div>
-            <br />
             <div>
-                <label>
-                    Categories: 
+                <label> 
                     <select value={selectedCategory} onChange={(e) => setSelectedCategory(e.target.value)}>
-                        <option value="">-- Select Category --</option>
+                        <option value="">Category</option>
                         <option value="National politics">National politics</option>
                         <option value="International politics">International politics</option>
                         <option value="Environment">Environment</option>
@@ -37,7 +34,6 @@ function Dropdowns({ selectedDistrict, selectedCategory, setSelectedDistrict, se
                     </select>
                 </label>
             </div>
-            <br />
         </div>
     );
 }

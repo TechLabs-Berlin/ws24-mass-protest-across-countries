@@ -1,4 +1,4 @@
-import ProtestPage from "../pages/ProtestPage";
+import ProtestPage from "./ProtestPage";
 import BannerCarousel from "../components/BannerCarousel";
 import NavBar from "../components/NavBar";
 export default function LandingPage() {

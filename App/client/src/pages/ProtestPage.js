@@ -3,17 +3,17 @@ import axios from "axios";
 import Dropdowns from "../components/protest/Dropdowns";
 import ProtestList from "../components/protest/ProtestList";
 import YearSelector from "../components/protest/YearSelector";
+import PeriodSelector from "../components/protest/PeriodSelector";
 import SearchBar from '../components/SearchBar';
 
 const DEV_URL = "http://localhost:8000/";
 const list_year = [2023, 2024];
-const list_categories = [""];
-const district = [""];
 
 function ProtestPage() {
     const [data, setData] = useState([]);
     const [originalData, setOriginalData] = useState([]); // Store original data
     const [selectedYear, setSelectedYear] = useState("");
+    const [selectedPeriod, setSelectedPeriod] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
     const [searchActive, setSearchActive] = useState(false); // Track if search is active
@@ -22,6 +22,7 @@ function ProtestPage() {
         try {
             const queryParams = [
                 ...(selectedYear ? [`year=${selectedYear}`] : []),
+                ...(selectedPeriod ? [`event_date=${selectedPeriod}`] : []),
                 ...(selectedCategory ? [`categories=${selectedCategory}`] : []),
                 ...(selectedDistrict ? [`district=${selectedDistrict}`] : [])
             ];
@@ -40,12 +41,13 @@ function ProtestPage() {
 
     useEffect(() => {
         getProtestList();
-    }, [selectedYear, selectedCategory, selectedDistrict]); // Add selected values as dependencies to trigger the effect when they change
+    }, [selectedYear, selectedPeriod, selectedCategory, selectedDistrict]); // Add selected values as dependencies to trigger the effect when they change
     
     //state function to filter by year:
     const handleYearSelect = async (year) => {
-        setSelectedYear(year);
+        setSelectedYear(year); 
     };
+    
     //state function to trigger data search:
     const handleSearchSubmit = async (searchData) => {
         setData(searchData);
@@ -55,6 +57,7 @@ function ProtestPage() {
     //state function to reset filters:
     const handleResetFilters = () => {
         setSelectedYear("");
+        setSelectedPeriod("");
         setSelectedCategory("");
         setSelectedDistrict("");
         setSearchActive(false); // Clear search and set as inactive
@@ -71,6 +74,12 @@ function ProtestPage() {
                 setSelectedCategory={setSelectedCategory}
             />
             <YearSelector years={list_year} onYearSelect={handleYearSelect} />
+            <div> 
+            <PeriodSelector 
+                selectedPeriod={selectedPeriod}
+                setSelectedPeriod={setSelectedPeriod}
+            />
+            </div>
             <div> 
                 <button onClick={handleResetFilters}>Clear</button>
             </div>

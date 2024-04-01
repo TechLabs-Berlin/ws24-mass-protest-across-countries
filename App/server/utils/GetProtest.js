@@ -2,11 +2,21 @@ const Protest = require("../data/protest")
 
 const getProtest = async (req, res) => {
         try {   
-                const { year, categories, district } = req.query;
+                const { year, event_date, categories, district } = req.query;
         
                 // Construct query object based on provided query parameters
                 const query = {};
                 if (year) query.year = year;
+                if (event_date) {
+                    const date = new Date(event_date);
+                    if (date.getTime() === new Date('2024-01-24T00:00:00.000Z').getTime()) {
+                        // Filter for next week:
+                        query.event_date = { $gte: date };
+                    } else if (date.getTime() === new Date('2023-11-30T23:59:59.999Z').getTime()) {
+                        // Filter for next month:
+                        query.event_date = { $gte: date };
+                    }
+                }
                 if (categories) query.categories = { $in: categories.split(',') };
                 if (district) query.district = { $in: district.split(',') };
 

@@ -5,18 +5,16 @@ export default function LandingPage() {
   return (
     <div>
       <main>
-        <div id="banner">
+        <div>
           <BannerCarousel />
         </div>
-        <br />
+
         <div>
           <ProtestPage />
         </div>
         
         <footer>
-          <br />
           <p>footer</p>
-          <br />
           <p>
             &copy; <i>FindMyProtest</i>
           </p>

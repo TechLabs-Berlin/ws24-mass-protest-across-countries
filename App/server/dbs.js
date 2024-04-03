@@ -1,5 +1,6 @@
 const fs = require("fs");
 const mongoose = require("mongoose");
+const axios = require("axios");
 const Protest = require("./data/protest");
 
 // Connect to MongoDB, insert data after connection:
@@ -56,7 +57,11 @@ async function insertPastProtest() {
       console.log('Past protests data inserted successfully:', result);
   } catch (err) {
       console.error('Error inserting past protests data:', err);
-  }
+  } finally {
+            // Close MongoDB connection - REMOVE LATER!!
+            mongoose.disconnect();
+        }
+  
 }
 
 // // Read JSON file and insert data into MongoDB for future protests

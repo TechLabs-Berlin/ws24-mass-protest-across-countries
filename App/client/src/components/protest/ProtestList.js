@@ -9,10 +9,6 @@ import CardBody from "react-bootstrap/esm/CardBody";
 import Toast from "react-bootstrap/Toast";
 
 function ProtestList({ data }) {
-  const formatDate = (isoDate) => {
-    const date = new Date(isoDate);
-    return date.toLocaleDateString();
-  };
 
   // Initialize state for managing toast visibility for each card
   const [showToast, setShowToast] = useState([]);
@@ -39,9 +35,11 @@ function ProtestList({ data }) {
             <Card>
               <Card.Img src={item.imageUrl} alt="random protest image" />
               <CardBody>
-                <CardTitle> {formatDate(item.event_date)}</CardTitle>
+                {/* Switched: */}
+                <CardTitle>{item.title}</CardTitle>
                 <ListGroup variant="flush">
-                  <ListGroup.Item>Theme: {item.categories}</ListGroup.Item>
+                  <ListGroup.Item>Date: {item.month} {item.day}, {item.year}</ListGroup.Item>
+                  <ListGroup.Item>Theme: {item.label}</ListGroup.Item>
                   <ListGroup.Item>District: {item.district}</ListGroup.Item>
                   {/* Additionally displayable: */}
                   <ListGroup.Item>Mood: {item.mood}</ListGroup.Item>
@@ -66,6 +64,8 @@ function ProtestList({ data }) {
                     </strong>
                   </Toast.Header>
                   <Toast.Body>{item.description}</Toast.Body>
+
+                  <Toast.Body><hr/><small>Source: &copy;{item.source}</small></Toast.Body>
                 </Toast>
               </CardBody>
             </Card>

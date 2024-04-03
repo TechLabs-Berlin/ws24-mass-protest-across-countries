@@ -7,12 +7,13 @@ import PeriodSelector from "../components/protest/PeriodSelector";
 import SearchBar from '../components/SearchBar';
 
 const DEV_URL = "http://localhost:8000/";
-const list_year = [2023, 2024];
+const list_year = [2021, 2022, 2023, 2024];
 
 function ProtestPage() {
     const [data, setData] = useState([]);
     const [originalData, setOriginalData] = useState([]); // Store original data
     const [selectedYear, setSelectedYear] = useState("");
+    const [initialYear, setInitialYear] = useState(""); // Track initial state of selected year
     const [selectedPeriod, setSelectedPeriod] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -23,7 +24,7 @@ function ProtestPage() {
             const queryParams = [
                 ...(selectedYear ? [`year=${selectedYear}`] : []),
                 ...(selectedPeriod ? [`event_date=${selectedPeriod}`] : []),
-                ...(selectedCategory ? [`categories=${selectedCategory}`] : []),
+                ...(selectedCategory ? [`category=${selectedCategory}`] : []),
                 ...(selectedDistrict ? [`district=${selectedDistrict}`] : [])
             ];
             
@@ -42,6 +43,11 @@ function ProtestPage() {
     useEffect(() => {
         getProtestList();
     }, [selectedYear, selectedPeriod, selectedCategory, selectedDistrict]); // Add selected values as dependencies to trigger the effect when they change
+    
+    useEffect(() => {
+        // Set initial year when component mounts
+        setInitialYear(selectedYear);
+    }, [selectedYear]);
     
     //state function to filter by year:
     const handleYearSelect = async (year) => {
@@ -73,13 +79,15 @@ function ProtestPage() {
                 setSelectedDistrict={setSelectedDistrict}
                 setSelectedCategory={setSelectedCategory}
             />
-            <YearSelector years={list_year} onYearSelect={handleYearSelect} />
-            <div> 
+            <YearSelector 
+                years={list_year} 
+                selectedYear={selectedYear} 
+                onYearSelect={handleYearSelect}
+                />
             <PeriodSelector 
                 selectedPeriod={selectedPeriod}
                 setSelectedPeriod={setSelectedPeriod}
             />
-            </div>
             <div> 
                 <button onClick={handleResetFilters}>Clear</button>
             </div>

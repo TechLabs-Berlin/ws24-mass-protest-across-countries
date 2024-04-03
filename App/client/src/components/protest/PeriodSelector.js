@@ -1,6 +1,6 @@
 function PeriodSelector({ selectedPeriod, setSelectedPeriod }) {
-    const nextWeek = '2024-01-24T00:00:00.000Z';
-    const nextMonth = '2023-11-30T23:59:59.999Z';
+    const nextWeek = '2024-02-01T00:00:00.000Z';
+    const nextMonth = '2023-12-31T23:59:59.999Z';
 
     return (
         <div>

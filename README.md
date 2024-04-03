@@ -1,6 +1,6 @@
 # Find My Protest
 
-Find my Protest is a platform which displays historical and future protest data, allowing users to find events in Berlin based on their search criteria. Additionally, the platform can predict the mood, opinions, and reactions of the public towards protests.
+Find my Protest is a platform which displays historical and future protest data, allowing users to find events in Berlin based on their search criteria. Additionally, the platform shows crowd predictions of future protests as well as the mood, opinions, and reactions of the public towards protests.
 
 ## Routing: Frontend and Backend
 
@@ -15,9 +15,37 @@ Clone the project's repository to your local machine by typing the following com
 git clone https://github.com/TechLabs-Berlin/ws24-mass-protest-across-countries.git
 ```
 
-### 2. Starting the React client:
+Then access the application in the folder `./App/`.
 
-Open the `./client/` folder, install dependencies and start the React app by typing the following commands in your terminal:
+### 2. Starting the Express server and loading the app data on MongoDB:
+
+Open the `./server/` folder, install dependencies and start the Express server app with the following terminal commands:
+
+```bash
+# OPEN SERVER FOLDER
+cd server
+
+# INSTALL DEPENDENCIES
+npm i
+
+# LOAD DATA IN MongoDB
+node dbs.js
+
+# START EXPRESS SERVER
+node index.js
+```
+
+You are sucessfully connected if can see the following lines in you terminal:
+
+```bash
+Serving on port 8000
+Database connected
+Database connected
+```
+
+### 3. Starting the React client:
+
+In a new terminal window, open the `./client/` folder, install dependencies and start the React app by typing the following commands:
 
 ```bash
 # OPEN CLIENT FOLDER
@@ -30,33 +58,13 @@ npm i
 npm start
 ```
 
-### 3. Starting the Express server and connecting to MongoDB:
-
-Open the `./server/` folder, install dependencies and start the Express server app with the following terminal commands:
-
-```bash
-# OPEN SERVER FOLDER
-cd server
-
-# INSTALL DEPENDENCIES
-npm i
-
-# LOAD DATA IN MongoDB
-node dbs.js image.js
-
-# START EXPRESS SERVER
-nodemon index.js
-# or
-node index.js
-```
-
 ### 4. Navigating the Web App:
 
 The React client runs on port 3000 in your local browser. To access the landing page, type the following address in your browser:
 
 - https://localhost:3000
 
-As shown in `./client/src/App.js`, the URLs path that can be accessed are '/', '/test-api' and /protests.
+As shown in `./client/src/App.js`, the URLs path that can be accessed are `/`, `/protests-analytics` and `/test-api` making sure the backend server is successfully connected.
 
 ### 5. Navigating the API server:
 
@@ -64,6 +72,4 @@ The Express server runs on local port 8000. To access the api langing page, type
 
 - https://localhost:8000
 
-As indicated in `./server/index.js`, accessible paths are '/', '/api/test' and /api/protests.
-
-After running `nodemon index.js` once, the Express api server will automatically restart whenever `Save` or `Enter` is typed.
+As indicated in `./server/index.js`, accessible paths are `/`, `/api/test`, `/api/protests` and `/api/protests/search`.

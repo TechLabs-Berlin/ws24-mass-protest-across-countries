@@ -13,7 +13,6 @@ function ProtestPage() {
     const [data, setData] = useState([]);
     const [originalData, setOriginalData] = useState([]); // Store original data
     const [selectedYear, setSelectedYear] = useState("");
-    const [initialYear, setInitialYear] = useState(""); // Track initial state of selected year
     const [selectedPeriod, setSelectedPeriod] = useState("");
     const [selectedCategory, setSelectedCategory] = useState("");
     const [selectedDistrict, setSelectedDistrict] = useState("");
@@ -44,10 +43,6 @@ function ProtestPage() {
         getProtestList();
     }, [selectedYear, selectedPeriod, selectedCategory, selectedDistrict]); // Add selected values as dependencies to trigger the effect when they change
     
-    useEffect(() => {
-        // Set initial year when component mounts
-        setInitialYear(selectedYear);
-    }, [selectedYear]);
     
     //state function to filter by year:
     const handleYearSelect = async (year) => {
@@ -68,6 +63,9 @@ function ProtestPage() {
         setSelectedDistrict("");
         setSearchActive(false); // Clear search and set as inactive
         setData(originalData); // Restore original data when resetting filters
+
+        // Revert YearSelector to default option
+        document.querySelector("#yearSelector").value = "";
     };
 
     return (

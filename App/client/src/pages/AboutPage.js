@@ -3,8 +3,6 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Image from "react-bootstrap/Image";
 import Row from "react-bootstrap/Row";
-import Card from "react-bootstrap/Card";
-import CardBody from "react-bootstrap/esm/CardBody";
 
 const AboutPage = () => {
   return (

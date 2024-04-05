@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import ApiTestPage from "./pages/ApiTestPage";
 import NavBar from "./components/NavBar";
 import AboutPage from "./pages/AboutPage";
+import AnalyticsPage from "./pages/AnalyticsPage";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // There are various different kinds of routers in the React Router Dom package.
@@ -18,6 +19,7 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/api-test" element={<ApiTestPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/analytics" element={<AnalyticsPage />} />
         </Routes>
       </BrowserRouter>
     </div>

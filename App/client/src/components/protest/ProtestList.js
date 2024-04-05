@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Popover from "react-bootstrap/Popover";
 import ListGroupItem from "react-bootstrap/esm/ListGroupItem";
+import CloseButton from "react-bootstrap/CloseButton";
 
 function ProtestList({ data }) {
   // Initialize state for managing toast visibility for each card
@@ -45,11 +46,12 @@ function ProtestList({ data }) {
                 >
                   <OverlayTrigger
                     trigger="click"
+                    rootClose
                     placement="right"
                     overlay={
                       <Popover id="popover-basic">
                         <Popover.Header as="h3">
-                          {""}
+                          <CloseButton />
                           <ListGroup variant="flush">
                             <ListGroup.Item>
                               Date: {item.month} {item.day}, {item.year}

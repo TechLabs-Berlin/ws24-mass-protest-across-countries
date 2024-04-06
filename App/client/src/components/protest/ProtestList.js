@@ -34,7 +34,7 @@ function ProtestList({ data }) {
       <Row xs={3} md={4} className="g-4">
         {data.map((item, index) => (
           <Col key={index}>
-            <Card>
+            <Card className="my-4">
               <Card.Img src={item.imageUrl} alt="random protest image" />
               <CardBody className="bg-secondary">
                 {/* Switched: */}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Dropdowns from "../components/protest/Dropdowns";
+import CategorySelector from "../components/protest/CategorySelector";
+import DistrictSelector from "../components/protest/DistrictSelector";
 import ProtestList from "../components/protest/ProtestList";
 import YearSelector from "../components/protest/YearSelector";
 import PeriodSelector from "../components/protest/PeriodSelector";
@@ -73,17 +74,21 @@ function ProtestPage() {
 
   return (
     <div>
-      <Container className="my-5">
+      <Container className="protest">
         <Row>
           <Col xs={3}>
             <SearchBar onSubmit={handleSearchSubmit} />
           </Col>
-          <Col xs={3}>
-            <Dropdowns
-              selectedDistrict={selectedDistrict}
+          <Col>
+            <CategorySelector
               selectedCategory={selectedCategory}
-              setSelectedDistrict={setSelectedDistrict}
               setSelectedCategory={setSelectedCategory}
+            />
+          </Col>
+          <Col>
+            <DistrictSelector
+              selectedDistrict={selectedDistrict}
+              setSelectedDistrict={setSelectedDistrict}
             />
           </Col>
           <Col>
@@ -104,10 +109,10 @@ function ProtestPage() {
               <button onClick={handleResetFilters}>Clear</button>
             </div>
           </Col>
-          <Row>
-            <ProtestList data={searchActive ? data : originalData} />{" "}
-            {/* Conditionally render based on searchActive state */}
-          </Row>
+        </Row>
+        <Row>
+          <ProtestList data={searchActive ? data : originalData} />
+          {/* Conditionally render based on searchActive state */}
         </Row>
       </Container>
     </div>

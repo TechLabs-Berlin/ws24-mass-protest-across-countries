@@ -1,5 +1,6 @@
 import ProtestPage from "./ProtestPage";
 import BannerCarousel from "../components/BannerCarousel";
+import Footer from "../components/Footer";
 export default function LandingPage() {
   return (
     <div>
@@ -12,12 +13,9 @@ export default function LandingPage() {
           <ProtestPage />
         </div>
 
-        <footer>
-          <p>footer</p>
-          <p>
-            &copy; <i>FindMyProtest</i>
-          </p>
-        </footer>
+        <div>
+          <Footer />
+        </div>
       </main>
     </div>
   );

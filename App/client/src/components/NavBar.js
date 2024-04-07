@@ -11,11 +11,13 @@ function NavBar() {
       className="bg-body-tertiary"
     >
       <Container>
-        <Navbar.Brand href="/">FIND MY PROTEST</Navbar.Brand>
+        <Navbar.Brand className="me-auto" href="/">
+          FIND MY PROTEST
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="/analytics">PROTEST ANALYTICS</Nav.Link>
+            <Nav.Link></Nav.Link>
           </Nav>
           <Nav>
             <Nav.Link href="/contact">CONTACT</Nav.Link>

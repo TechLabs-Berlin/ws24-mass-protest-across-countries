@@ -75,7 +75,25 @@ function ProtestList({ data }) {
                       </Popover>
                     }
                   >
-                    <Button className="bg-secondary" variant="secondary">
+                    <Button
+                      className="bg-secondary"
+                      variant="secondary"
+                      style={{
+                        overflow: "hidden",
+                        whiteSpace: "nowrap",
+                        textOverflow: "ellipsis",
+                        width: "300px",
+                        transition: "width 0.5s ease",
+                      }}
+                      onMouseEnter={(e) => {
+                        e.target.style.width = "auto";
+                        e.target.style.whiteSpace = "normal";
+                      }} // Expand on hover
+                      onMouseLeave={(e) => {
+                        e.target.style.width = "300px";
+                        e.target.style.whiteSpace = "nowrap";
+                      }} // Collapse on mouse leave
+                    >
                       {item.title}
                     </Button>
                   </OverlayTrigger>

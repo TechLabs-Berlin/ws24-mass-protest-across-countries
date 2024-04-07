@@ -31,7 +31,7 @@ function ProtestList({ data }) {
 
   return (
     <div>
-      <Row xs={3} md={4} className="g-4">
+      <Row xs={3} md={4}>
         {data.map((item, index) => (
           <Col key={index}>
             <Card className="my-4">

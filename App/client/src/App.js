@@ -3,6 +3,7 @@ import LandingPage from "./pages/LandingPage";
 import ApiTestPage from "./pages/ApiTestPage";
 import NavBar from "./components/NavBar";
 import AboutPage from "./pages/AboutPage";
+import Footer from "./components/Footer";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 // There are various different kinds of routers in the React Router Dom package.
@@ -19,6 +20,7 @@ function App() {
           <Route path="/api-test" element={<ApiTestPage />} />
           <Route path="/about" element={<AboutPage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   );

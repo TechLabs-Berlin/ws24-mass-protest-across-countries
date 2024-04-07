@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const DEV_URL = "http://localhost:8000/";
 
@@ -9,11 +10,13 @@ function SearchBar({ onSubmit }) {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     try {
-      const url_param = '?searchterm=' + term;
-      const response = await axios.get(DEV_URL + "api/protest/search" + url_param);
+      const url_param = "?searchterm=" + term;
+      const response = await axios.get(
+        DEV_URL + "api/protest/search" + url_param
+      );
       const searchData = response.data.slice(0, 10);
       onSubmit(searchData); // Call the onSubmit callback with the search results
-      setTerm("")
+      setTerm("");
     } catch (err) {
       console.log(err.message);
     }
@@ -27,8 +30,7 @@ function SearchBar({ onSubmit }) {
     <div className="search-bar">
       <form onSubmit={handleFormSubmit}>
         <label>
-            <input value={term} onChange={handleChange} />
-            <button type="submit">Search</button>
+          <input placeholder="Search" value={term} onChange={handleChange} />
         </label>
       </form>
     </div>

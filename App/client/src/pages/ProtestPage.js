@@ -76,7 +76,7 @@ function ProtestPage() {
     <div>
       <Container fluid className="protest">
         <Row>
-          <Col xs={3}>
+          <Col>
             <SearchBar onSubmit={handleSearchSubmit} />
           </Col>
           <Col>

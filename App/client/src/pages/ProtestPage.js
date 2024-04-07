@@ -74,42 +74,42 @@ function ProtestPage() {
 
   return (
     <div>
-      <Container fluid className="protest">
+      <Container className="protest">
         <Row>
-          <Col>
+          <Col className="my-2">
             <SearchBar onSubmit={handleSearchSubmit} />
           </Col>
-          <Col>
+          <Col className="my-2">
             <CategorySelector
               selectedCategory={selectedCategory}
               setSelectedCategory={setSelectedCategory}
             />
           </Col>
-          <Col>
+          <Col className="my-2">
             <DistrictSelector
               selectedDistrict={selectedDistrict}
               setSelectedDistrict={setSelectedDistrict}
             />
           </Col>
-          <Col>
+          <Col className="my-2">
             <YearSelector
               years={list_year}
               selectedYear={selectedYear}
               onYearSelect={handleYearSelect}
             />
           </Col>
-          <Col>
+          <Col className="my-2">
             <PeriodSelector
               selectedPeriod={selectedPeriod}
               setSelectedPeriod={setSelectedPeriod}
             />
           </Col>
-          <Col>
-            <div>
-              <button onClick={handleResetFilters}>Clear</button>
-            </div>
+          <Col className="my-2">
+            <button onClick={handleResetFilters}>Clear</button>
           </Col>
         </Row>
+      </Container>
+      <Container fluid>
         <Row>
           <ProtestList data={searchActive ? data : originalData} />
           {/* Conditionally render based on searchActive state */}

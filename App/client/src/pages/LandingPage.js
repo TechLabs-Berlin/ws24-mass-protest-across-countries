@@ -12,10 +12,6 @@ export default function LandingPage() {
         <div>
           <ProtestPage />
         </div>
-
-        <div>
-          <Footer />
-        </div>
       </main>
     </div>
   );

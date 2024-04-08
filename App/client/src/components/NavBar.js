@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Nav, Navbar, Container, Image } from "react-bootstrap";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHandFist } from '@fortawesome/free-solid-svg-icons';
+
 import SignIn from "./Login/SignIn";
 
 function NavBar() {
@@ -26,11 +27,12 @@ function NavBar() {
           </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav.Link className="me-auto">
-          </Nav.Link><Nav.Link>
+          <span className="me-auto">
+          </span>
+          <Nav>
             <Nav.Link href="/contact">CONTACT</Nav.Link>
             <Nav.Link href="/about">ABOUT</Nav.Link>
-          </Nav.Link>
+          </Nav>
           <Nav>
             <SignIn className="me-auto" onSignIn={() => setIsLoggedIn(true)}/>
           </Nav>

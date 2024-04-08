@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const ExpressError = require("./utils/ExpressError");
-const getProtest = require("./utils/GetProtest");
-const searchProtest = require("./utils/SearchProtest");
+const AppError = require("./utils/AppError");
+const router = require(("./routes/router"));
 
 // Connect to MongoDB:
 mongoose.connect("mongodb://localhost:27017/fm-protest");
@@ -16,42 +15,37 @@ const app = express();
 
 // Middleware to solve CORS issue:
 app.use(function(req, res, next) {
-	res.header("Access-Control-Allow-Origin", "http://localhost:3000");
+	res.header("Access-Control-Allow-Origin", "http://localhost:3000"); // client server = react domain sending requests
 	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
 	next();
   })
 
-// Test server successful connecton:
+// Middleware to parse JSON requests
+app.use(express.json());
+
+// Api route to protests:
+app.use("/api", router)
+
+// Test successful server connection:
 app.get('/', (req, res) => {
-	console.log('Test connection');
-	res.send('Server connected!');
+	console.log('Test');
+	res.send('Server sucessfully connected!');
 })
 
-// Test api fetching by frontend with random number:
-app.get('/api/test', (req, res) => {
-	let randomNumber = Math.floor(Math.random() * 100);
-	console.log(`Your random number is: ${randomNumber}`);
-	res.send(randomNumber.toString());
-})
-
-// GET api for ProtestPage:
-app.get("/api/protest", getProtest)
-
-// GET api for SearchBar:
-app.get("/api/protest/search", searchProtest)
-
-// Error handling middleware:
+// Error handling when the api typed isn't found by the server, .all for every request and * for every path:
 app.all("*", (req, res, next) => {
-    next(new ExpressError("Server not found!", 404))
+    next(new AppError("Server not found", 404))
 })
 
-// Default error handler:
-app.use((err, req, res) => {
-    const { statusCode = 500 } = err;
-    if(!err.message) err.message = "Something went Wrong!"
-    res.status(statusCode).render("error", { err })
-})
+// Default error handler showing when invalid API has been requested:
+app.use((err, req, res, next) => {
+  const { statusCode = 500 } = err;
+  if (!err.message) err.message = "Internal server error'";
+  res.status(statusCode).json({ error: err.message });
+});
 
-app.listen(8000, () => {
-    console.log("Server on port 8000")
+// Start the server
+const PORT = process.env.PORT || 8000;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 })

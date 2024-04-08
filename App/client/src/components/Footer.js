@@ -1,45 +1,31 @@
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
-import Row from "react-bootstrap/Row";
-import Button from "react-bootstrap/esm/Button";
+import { Button, Container, Row, Col } from "react-bootstrap";
 
 function Footer() {
-  return (
-    <footer className="bg-dark mt-5">
-      <Container className="p-5 text-white">
+    return (
+      <Container fluid className="bg-dark text-white pt-5 pb-4 mt-5" style={{ fontFamily: 'Playfair Display, serif'}}>
         <Row>
           <Col>
+            <blockquote className="blockquote mb-0" disabled>
+              <p><small><i>Find_My_Protest</i></small></p>
+              <br />
+              <footer className="blockquote-footer"><small><i>Webdesign by Annika Reynders & Lydie Kouang.</i></small></footer>
+            </blockquote>
+          </Col>
+          <Col>
             <p>
-              &copy; <i>FindMyProtest</i>
+              Data Source: &copy; <a href="https://acleddata.com/early-warning/" target="_blank"> ACLED </a>
             </p>
           </Col>
           <Col>
-            <div>
-              <p>
-                Data Source:
-                <a
-                  className="text-decoration-none text-white"
-                  href="https://acleddata.com/early-warning/"
-                  target="_blank"
-                >
-                  ACLED
+            <Button className="bg-dark border-light" size="lg">
+                <a href="#" className="back-top-button text-decoration-none head-font text-white">
+                  Back to top
                 </a>
-              </p>
-            </div>
+              </Button>
           </Col>
-
-          <Col>
-            <a
-              href="#"
-              className="back-top-button head-font text-decoration-none text-white"
-            >
-              Back to top
-            </a>
-          </Col>
-        </Row>
+          </Row>
       </Container>
-    </footer>
-  );
-}
-
-export default Footer;
+    );
+  }
+  
+  export default Footer;

@@ -1,18 +1,14 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
 import LandingPage from "./pages/LandingPage";
 import ApiTestPage from "./pages/ApiTestPage";
 import NavBar from "./components/NavBar";
 import AboutPage from "./pages/AboutPage";
 import Footer from "./components/Footer";
-import "bootstrap/dist/css/bootstrap.min.css";
-
-// There are various different kinds of routers in the React Router Dom package.
-// Within the router, routes can be set up by declaring individual routes with a URL path and the component to be
-// rendered upon accessing said path.
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{ fontFamily: 'Abril Fatface, serif'}}>
       <BrowserRouter>
         <NavBar />
         <Routes>

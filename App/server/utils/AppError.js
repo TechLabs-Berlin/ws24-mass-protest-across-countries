@@ -1,4 +1,5 @@
-class ExpressError extends Error {
+// Construct error throwing middleware:
+class AppError extends Error {
     constructor(message, statusCode) {
         super();
         this.message = message;
@@ -6,4 +7,4 @@ class ExpressError extends Error {
     }
 }
 
-module.exports = ExpressError;
+module.exports = AppError;

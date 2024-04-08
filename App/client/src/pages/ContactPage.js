@@ -1,13 +1,18 @@
 import React from "react";
-import { Container, Nav, Row, Col } from "react-bootstrap";
+import { Container, Nav, Row, Col, Image } from "react-bootstrap";
 import '../index.css';
 
 const ContactPage = () => {
   return (
     <div>
-      <Container fluid className="background p-5 m-5 h-100">
+      <Container fluid className="justify-content-center background pb-5 pt-0 me-auto">
+      <Row className="justify-content-center">
+          <Col xs={4} md={2} lg={3}>
+            <Image src="fmplogo.png" alt="logo" fluid />
+          </Col>
+      </Row>
         <Row>
-          <Col className="text-center text-white fs-2 p-5 m-5 bg-dark border rounded">
+          <Col className="text-center text-white fs-2 p-5 mt-2 mx-5 bg-dark border rounded">
           Find My Protest Contact
           </Col>
         </Row>
@@ -27,7 +32,7 @@ const ContactPage = () => {
             check out the details for our business customers (B2B) — we speak English, French, Spanish, Korean and German.
           </Col>
         </Row>
-        <Row className="pt-3 m-5 text-center text-white bg-dark border rounded">
+        <Row className="pt-3 mt-2 mx-5 text-center text-white bg-dark border rounded">
         <Col>
           <Nav.Link href="https://facebook.com/loremipsumgenerator">Facebook</Nav.Link>
         </Col>
@@ -39,7 +44,6 @@ const ContactPage = () => {
         </Col>
         </Row>
       </Container>
-      {/* Your footer component here */}
     </div>
   );
 };

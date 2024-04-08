@@ -1,18 +1,12 @@
+import { Container } from "react-bootstrap/Container";
 import ProtestPage from "./ProtestPage";
 import Banner from "../components/Banner";
 
 export default function LandingPage() {
   return (
-    <div>
-      <main>
-        <div>
+      <Container className="px-4" fluid>
           <Banner />
-        </div>
-
-        <div>
           <ProtestPage />
-        </div>
-      </main>
-    </div>
+      </Container>
   );
 }

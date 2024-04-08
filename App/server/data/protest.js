@@ -12,22 +12,29 @@ db.once("open", () => {
 
 // Define schema
 const protestSchema = new Schema({
-  event_date: Date,
+  event_date: {
+    type: Date,
+    required: true 
+  },
   year: Number,
   month: String,
-  day: String,
-  mood: String,
+  day: Number,
   district: String,
   source: String,
   category: String,
   label: String,
   title: String,
   description: String,
-  notes: String,
-  crowd_size_class: Number,
-  crowd_size: String,
-  imageUrl: String,
+  crowd_size: String, 
+  crowd_size_name: String,
+  isCrowdPredicted: {
+    type: Boolean,
+    default: false
+  },
+  imageUrl: String
 });
 
-// Create model + export:
-module.exports = mongoose.model('Protest', protestSchema);
+// Create model + export
+const Protest = mongoose.model("Protest", protestSchema);
+
+module.exports = Protest;

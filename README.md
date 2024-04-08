@@ -17,33 +17,12 @@ git clone https://github.com/TechLabs-Berlin/ws24-mass-protest-across-countries.
 
 Then access the application in the folder `./App/`.
 
-### 2. Starting the Express server and loading the app data on MongoDB:
-
-Open the `./server/` folder, install dependencies and start the Express server app with the following terminal commands:
-
 ```bash
-# OPEN SERVER FOLDER
-cd server
-
-# INSTALL DEPENDENCIES
-npm i
-
-# LOAD DATA IN MongoDB
-node dbs.js
-
-# START EXPRESS SERVER
-node index.js
+# OPEN CLIENT FOLDER
+cd App
 ```
 
-You are sucessfully connected if can see the following lines in you terminal:
-
-```bash
-Serving on port 8000
-Database connected
-Database connected
-```
-
-### 3. Starting the React client:
+### 2. Starting the React client:
 
 In a new terminal window, open the `./client/` folder, install dependencies and start the React app by typing the following commands:
 
@@ -56,6 +35,32 @@ npm i
 
 # START REACT CLIENT
 npm start
+```
+
+### 3. Starting the Express server and loading the app data on MongoDB:
+
+Open the `./server/` folder, install dependencies and start the Express server app with the following terminal commands:
+
+```bash
+# OPEN SERVER FOLDER
+cd server
+
+# INSTALL DEPENDENCIES
+npm i
+
+# LOAD DATA IN MongoDB
+node seed.js
+
+# START EXPRESS SERVER
+node index.js
+```
+
+You are sucessfully connected if can see the following lines in you terminal:
+
+```bash
+Serving on port 8000
+Database connected
+Database connected
 ```
 
 ### 4. Navigating the Web App:

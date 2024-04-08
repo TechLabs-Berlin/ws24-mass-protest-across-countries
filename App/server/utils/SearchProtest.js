@@ -1,51 +1,48 @@
 const Protest = require("../data/protest");
-const ExpressError = require("./ExpressError")
+const AppError = require("./AppError");
+const catchAsync = require("./CatchAsync");
 
-const searchProtest = async (req, res, next) => {
-    try {
-        const { searchterm } = req.query;
+// Main function for searching protests
+const searchProtest = catchAsync(async (req, res) => {
+    const { searchterm } = req.query;
 
-        if (!searchterm) {
-            throw new ExpressError("Search term is missing'", 400)
-        }
-
-        const searchTerm = searchterm.trim();
-        console.log(searchTerm);
-
-        // Get all string fields in my Protest schema
-        const stringFields = Object.keys(Protest.schema.paths).filter(
-            key => Protest.schema.paths[key].instance === 'String'
-        );
-
-        // Query database for protests based on the searchTerm
-        const regex = new RegExp(`^.*${searchTerm}.*$`, 'i'); // 'i' flag for case-insensitive search
-        const stringFieldQuery = {
-            // Use $or operator to search multiple fields, adjust as needed
-            $or: stringFields.map(field => ({ [field]: { $regex: regex } }))
-        };
-        console.log(stringFieldQuery)
-
-        let yearQuery = {};
-        // Only construct yearQuery if searchTerm is numeric
-        if (!isNaN(searchTerm)) {
-            yearQuery = { year: parseInt(searchTerm) };
-        }
-
-        const mergedQuery = {
-            $and: [stringFieldQuery, yearQuery]
-        };
-
-        const protests = await Protest.find(mergedQuery);
-
-        if (protests.length === 0) {
-            throw new ExpressError("No protests found", 404)
-        }
-        // Send JSON object as a response
-        res.json(protests);
-    } catch (err) {
-        console.error('Error fetching protests:', err);
-        next(err)
+    if (!searchterm) {
+        throw new AppError("Search term is missing", 400);
     }
-}
+
+    // Split the search term by spaces to get individual terms
+    const searchTerms = searchterm.trim().split(" ").filter(term => term); // Remove empty terms
+
+    // Get all string fields in the Protest schema
+    const stringFields = Object.keys(Protest.schema.paths).filter(
+        key => Protest.schema.paths[key].instance === 'String'
+    );
+
+    // Construct regex query for each search term and each string field
+    const regexQueries = searchTerms.map(term =>
+        stringFields.map(field => ({ [field]: { $regex: new RegExp(term, 'i') } }))
+    ).flat();
+
+    // Construct direct equality query for each numeric search term
+    const numericQueries = searchTerms.filter(term => !isNaN(parseInt(term))).map(term => ({
+        $or: [
+            { year: parseInt(term) },
+            { day: parseInt(term) }
+        ]
+    }));
+
+    // Combine regex and numeric queries
+    const mergedQuery = {
+        $or: [
+            ...regexQueries,
+            ...numericQueries
+        ]
+    };
+
+    // Query database for protests based on the merged query
+    const protests = await Protest.find(mergedQuery);
+
+    res.json(protests);
+});
 
 module.exports = searchProtest;

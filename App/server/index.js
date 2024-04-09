@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const express = require("express");
 const AppError = require("./utils/AppError");
-const router = require(("./routes/router"));
+const router = require(("./router"));
 
 // Connect to MongoDB:
 mongoose.connect("mongodb://localhost:27017/fm-protest");

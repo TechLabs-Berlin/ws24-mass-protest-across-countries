@@ -10,3 +10,21 @@
 </h5>
 
 &nbsp;
+
+## Description
+
+Find my Protest is a platform which displays historical and future protest data, allowing users to find events in Berlin based on their search criteria. Additionally, the platform shows crowd predictions of future protests as well as the mood, opinions, and reactions of the public towards protests.
+
+&nbsp;
+&nbsp;
+&nbsp;
+
+## UX
+<h5 align="left">
+  | &nbsp; <a href="#Weronika">Weronika</a> &nbsp; |
+  &nbsp; <a href="#"></a> &nbsp; |
+</h5>
+
+&nbsp;
+&nbsp;
+&nbsp;

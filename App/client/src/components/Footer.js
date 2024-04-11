@@ -6,14 +6,14 @@ function Footer() {
         <Row>
           <Col>
             <blockquote className="blockquote mb-0" disabled>
-              <p><small><i>Find_My_Protest</i></small></p>
+              <p><small><i>&#174; Find_My_Protest</i></small></p>
               <br />
-              <footer className="blockquote-footer"><small><i>Webdesign by Annika Reynders & Lydie Kouang.</i></small></footer>
+              <footer className="blockquote-footer"><small><i>"Injustice anywhere is a threat to justice everywhere." - Martin Luther King Jr.</i></small></footer>
             </blockquote>
           </Col>
           <Col>
             <p>
-              Data Source: &copy; <a href="https://acleddata.com/early-warning/" target="_blank"> ACLED </a>
+              Data Source: <a href="https://acleddata.com/early-warning/" target="_blank"> &copy;ACLED </a>
             </p>
           </Col>
           <Col>

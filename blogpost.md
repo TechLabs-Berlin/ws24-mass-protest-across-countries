@@ -5,6 +5,7 @@
 <h5 align="center">
   <a href="#Description">Project Description</a>  |
   <a href="#UX">User Experience</a>  |
+  <a href="#DS">User Experience</a>  |
   <a href="#WD-Backend">WD Backend</a>  |
   <a href="#WD-Frontend">WD Frontend</a>
 </h5>
@@ -22,7 +23,7 @@ Find my Protest is a platform which displays historical and future protest data,
 ## UX
 <h5 align="left">
   | &nbsp; <a href="#Weronika">Weronika</a> &nbsp; |
-  &nbsp; <a href="#"></a> &nbsp; |
+  &nbsp; <a href="#Mana"></a> &nbsp; |
 </h5>
 
 &nbsp;

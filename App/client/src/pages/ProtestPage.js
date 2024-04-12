@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import CategorySelector from "../components/Protest/CategorySelector";
-import DistrictSelector from "../components/Protest/DistrictSelector";
-import ProtestList from "../components/Protest/ProtestList";
-import YearSelector from "../components/Protest/YearSelector";
-import PeriodSelector from "../components/Protest/PeriodSelector";
+import CategorySelector from "../components/Protests/CategorySelector";
+import DistrictSelector from "../components/Protests/DistrictSelector";
+import ProtestList from "../components/Protests/ProtestList";
+import YearSelector from "../components/Protests/YearSelector";
+import PeriodSelector from "../components/Protests/PeriodSelector";
 import SearchBar from '../components/SearchBar';
 import {Container, Row, Col, Button } from "react-bootstrap";
 import '../index.css';

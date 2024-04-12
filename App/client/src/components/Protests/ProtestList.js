@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Card, Container, Col, Row, ListGroup, CardTitle, CardBody, Button, OverlayTrigger, Popover, ListGroupItem, CloseButton } from "react-bootstrap";
+import { Card, Col, Row, ListGroup, CardTitle, CardBody, Button, OverlayTrigger, Popover, ListGroupItem } from "react-bootstrap";
 
 function ProtestList({ data }) {
   // Initialize state for managing toast visibility for each card

@@ -7,7 +7,7 @@
 <p align="center">
   <a href="#demo">Demo</a> •
   <a href="#setup">Setup</a> •
-  <a href="#participants">Participants</a>
+  <a href="#team">Team</a>
 </p>
 
 ---
@@ -26,7 +26,7 @@ https://drive.google.com/drive/folders/19AauH9hKPJSslkwdzg606HcCzV1-06Jy
 - [Bootstrap](https://react-bootstrap.netlify.app/)
 - [Node.js](https://nodejs.org)
 - [Express](https://expressjs.com)
-- [Moongose](https://mongoosejs.com)
+- [Mongoose](https://mongoosejs.com)
 - [MongoDB](https://www.mongodb.com)
 
 ### 2. Running the project:
@@ -59,7 +59,6 @@ cd client
 npm i
 # and if needed:
 npm i react
-npm i react-bootstrap
 ```
 
 ```bash
@@ -81,11 +80,6 @@ cd server
 npm i
 # and if needed:
 npm i express mongoose
-```
-
-```bash
-# START MongoDB SERVER
-mongosh
 ```
 
 ```bash
@@ -122,7 +116,7 @@ The Express server runs on local port 8000. To access the api langing page, type
 
 As indicated in `./server/routes/router.js`, accessible paths are `/`, `/api/test`, `/api/protests` and `/api/search`.
 
-## Participants
+## Team
 
 ### Contributors:
 

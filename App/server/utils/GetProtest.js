@@ -1,6 +1,6 @@
 const Protest = require("../data/protest")
 const AppError = require("./AppError");
-const catchAsync = require("./CatchAsync");
+const catchAsync = require("./catchAsync");
 
 // Route handler to fetch protests based on query parameters
 const getProtest = catchAsync(async (req, res) => {

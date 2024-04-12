@@ -3,7 +3,7 @@ const router = express.Router();
 const validateSearchterm = require("./Joi");
 const getProtest = require("./utils/GetProtest");
 const searchProtest = require("./utils/SearchProtest");
-const catchAsync = require("./utils/CatchAsync");
+const catchAsync = require("./utils/catchAsync");
 const AppError = require('./utils/AppError');
 
 // Api to test server-client connection:

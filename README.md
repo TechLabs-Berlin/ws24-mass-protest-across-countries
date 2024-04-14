@@ -38,10 +38,15 @@ Clone the project's repository to your local machine by writing the following co
 git clone https://github.com/TechLabs-Berlin/ws24-mass-protest-across-countries.git
 ```
 
-Then access the application in the `./App/`folder :
+Access the project directory then the application in the `./App/`folder :
 
 ```bash
-# OPEN CLIENT FOLDER
+# OPEN PROJECT DIRECTORY
+cd ws24-mass-protest-across-countries
+```
+
+```bash
+# OPEN APP FOLDER
 cd App
 ```
 
@@ -57,7 +62,10 @@ cd client
 ```bash
 # INSTALL DEPENDENCIES
 npm i
-# and if needed:
+```
+
+```bash
+# AND IF NEEDED
 npm i react
 ```
 
@@ -78,7 +86,10 @@ cd server
 ```bash
 # INSTALL DEPENDENCIES
 npm i
-# and if needed:
+```
+
+```bash
+# AND IF NEEDED
 npm i express mongoose
 ```
 

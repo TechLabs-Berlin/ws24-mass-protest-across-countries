@@ -46,6 +46,7 @@ Thirdly, I made the high wireframing, User flow, and the fist logo finalized it.
 <img  src="./Documentation/Images/ux-wireframe-mana.jpg"  width="900px">
 
 ### Weronika
+In collaboration with Mana, we developed a user persona to guide our design process (refer to the image above). I designed and distributed a survey to collect feedback and insights from the user's perspective. Additionally, I created an initial draft of the logo, to which Mana added the finishing touch—a fist—to align it with the theme of mass protests. To the high fidelity prototype I added some nice images that depicts context and tells the story from images. 
 
 &nbsp;
 &nbsp;

@@ -167,7 +167,43 @@ KNearest Neighbor, Linear Regression, Decision Tree and Random Forest. We played
 
 We found that the manually Indexed Version with KNN Method,Min_Max_Scaler, One Neighbour and test_size(0.2) had accurate results and predictions.
 
-When we tried on examples it actually showed the right results with: 0.94 train & 0.34 test. We validated the KNN Predictions and verified that One Neighbour will have the highest results. We did not have time to Evaluate and implement it into a column but will try implementing that as soon as possible.
+When we tried on examples it actually showed the right results with: 0.94 train & 0.34 test. We validated the KNN Predictions and verified that One Neighbour will have the highest results. 
+Train Scores: 
+[[0.44 0.44 0.44]
+ [0.44 0.46 0.45]
+ [0.66 0.68 0.64]
+ [0.86 0.85 0.83]]
+Test Scores: 
+[[0.44 0.44 0.44]
+ [0.44 0.41 0.43]
+ [0.36 0.36 0.39]
+ [0.43 0.41 0.44]]
+
+We evaluated our training set until now with: Accuracy 0.14 what is quite low so we need to find ways to improve it.
+Furthermore we are still working on implementing  the  predicted crowd_size into the Future Data, but have not been successful so far.
+Our current results are:
+0    month_day  label_class  district_class
+1         2.16          4.5               1
+...
+394       3.24          5.5               5  is  3
+[ 1  7  3  3  7  7  7  7  2  7  7  7  8  1  1  1  7  7  3  3  2  8  2  3
+  2  1  2  7  4  3  7  1  3  7  1  8  1  1  3  3  3 11 11  3 11  7  3  3
+  3  3  3  1  7  3  7  7  7  7  7  7  3  3  8  3  3  3  4  1  2  3  3  2
+  2  7  7  3  7  7  7 11 11  1  1  3  7  3  4  2  2  2  3  2  2  2  7  3
+  2  1  1  7  3  7  3  3  3 11  3  4  4  3  7  2  6  1  1  7  2 11 11 11
+  1  3  3  3  2  2  3  2  3  1  1  7  3  2  2  2  3  2  2  7  5  3  2  1
+  1  7  7  3  3  7  7  7  7  7  3  3  5  3  1  3  3  3  3  8 11 11  7  1
+  3  3 11 11  3  3  1  1  7  7  3  3  3  3  3  3  3  3  3  3  1  7  2  2
+  3  7  3  1  3  2  2  7  7  1  7  7  7  2  1  1  7  1  7  7  1  3  2  2
+  3  1  1  4  3  2  2  7  6  4  7  1  1  1  7  2  2  3  3  3  3  4  8  3
+  1  1  1  6  6  3  4  9  1  6  3  3  3  3  3  3  3  3  1  9  1  4  3  2
+  3  8  8  5  3  1  3  8  3  8  3  8  4  3  2  2  1  1  3  8  8  8  3  6
+  8  3  8  2  6  6  8  1  3  3  3  8  6  8  8  4  8  2  3  3  5  3  4  1
+  5  3  1  4  8  3  1  3  1  3  1  7  4  8  3  3  3  8  9  3  9  3  9  3
+  5  1  4  6  6  3  4  3  1  3  3  3  1  3  8  6  8  3  2  2  8  8  8  1
+  8  8  8  3  2  6  8  3  3  3  8  2  1  6  6  8  3  3  3  3  8  1  6  6
+  8  6  6  8  3  2  3  3  3  4]
+
 
 ## Deep Learning
 

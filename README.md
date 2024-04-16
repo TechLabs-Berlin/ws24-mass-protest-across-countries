@@ -125,7 +125,7 @@ The Express server runs on local port 8000. To access the api langing page, type
 
 - https://localhost:8000
 
-As indicated in `./server/routes/router.js`, accessible paths are `/`, `/api/test`, `/api/protests` and `/api/search`.
+As indicated in `./server/routes/router.js`, accessible paths are `/`, `/api/test`, `/api/protest` and `/api/search`.
 
 ## Team
 

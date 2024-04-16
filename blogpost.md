@@ -29,13 +29,15 @@ During our initial brainstorming sessions, project members gathered insights and
   &nbsp; <a href="#Weronika">Weronika</a> &nbsp; |
 </h5>
 
+[Figma](https://www.figma.com/file/5w82PrlM61kZCWFClhqVP5/MASS-PROTEST?type=design&node-id=0-1&mode=design)
+
 ### Mana
 
 Firstly, Weronika and I chose two people living in Berlin and we interviewed them after that, we got a result(insights) from the interviews which showed us what our users needed. then both of us created personas and scenarios.
 
 | Mana Persona                                                          | Weronika Persona                                                         |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| <img src="./Assets/ux-persona-mana.jpg" width="450px" > | <img src="./Assets/ux-persona-weronika.png" width="450px"> |
+| <img src="./Documentation/Images/ux-persona-mana.jpg" width="450px" > | <img src="./Documentation/Images/ux-persona-weronika.png" width="450px"> |
 
 Secondly, I made a first draft of low wireframing to have an overall look at the mass protest website, and then, we checked it with the WD team to better grasp the overall look and the necessary options. So I have added the categories option for better accessibility for users to their relative and desired protests such as environment or finance section, etc. Moreover, I thought having a search area is a must, for the times that users already know which protest they want to attend but they don't know the exact location or time so, in this case, they can search the name of the protest and then the whole infos will pop up.
 
@@ -56,7 +58,7 @@ In collaboration with Mana, we developed a user persona to guide our design proc
   &nbsp; <a href="#Backend">Backend</a> &nbsp; |
 </h5>
 
-In the beginning of the project we decided on what environment, frameworks and libraries to use. We came to the conclusion that it's best to use React and Bootstrap in the frontend and NodeJS, Express, MongoDB, Mongoose and Joi in the backend.
+In the beginning of the project we decided on what environment, frameworks and libraries to use. We came to the conclusion that it's best to use React and Bootstrap in the frontend and NodeJS, Express, MongoDB and Mongoose in the backend.
 
 On the frontend we started the project looking into the logic of different functions we were thinking about having in our app while trying to figure out the structure of the components. After setting up Git we created our server and React app and started to code.
 
@@ -68,13 +70,13 @@ Initially, we explored rendering information using static templates like EJS, as
 
 | ProtestPage                                                                | SearchBar                                                               |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <img src="./Assets/frontend-protestpage.png" width="450px" > | <img src="./Assets/frontend-searchbar.png" width="450px"> |
+| <img src="./Documentation/Images/frontend-protestpage.png" width="450px" > | <img src="./Documentation/Images/frontend-searchbar.png" width="450px"> |
 
 We styled all components primarily using the Bootstrap library, with additional CSS for the fonts, banner sizing and logo placement. Dynamic sub-components were implemented using React hooks like useState and useEffect, ensuring that the protest card results from the query selectors or the search bar were simultaneously updated on the page. We also incorporated buttons to clear the search or load more results at the bottom using said hooks.
 
 | Lower frame                                                             | Higher frame                                                            |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <img src="./Assets/frontend-lowframe.png" width="450px" > | <img src="./Assets/frontend-highframe.png" width="450px"> |
+| <img src="./Documentation/Images/frontend-lowframe.png" width="450px" > | <img src="./Documentation/Images/frontend-highframe.png" width="450px"> |
 
 ### Backend
 
@@ -88,7 +90,7 @@ MongoDB was chosen as the database, with a Mongoose schema created to define the
 
 <img  src="./Assets/backend-protest-schema.png"  width="500px">
 
-Once the Protests collection was established and populated in the database, the backend constructed the API route /protest and its corresponding logic to query protest details for the frontend. The API route /search as well as its fetch logic was later added for the search bar. To ensure compatibility between search bar input types and the database, an input type validation was added on the backend.
+Once the Protests collection was established and populated in the database, the backend constructed the API route `/protest` and its corresponding logic to query protest details for the frontend. The API route `/search` as well as its fetch logic was later added for the search bar. To ensure compatibility between search bar input types and the database, an input type validation was added on the backend.
 
 Following the provision of final data for past protests by the data science team, which included a crowd size classification, the backend seamlessly integrated it into the database. Doing so, the key "crowd_size_name" was added to the Protest schema to enhance visualization of crowd size significance on the protest cards, as suggested by the WD mentor.
 
@@ -167,48 +169,7 @@ KNearest Neighbor, Linear Regression, Decision Tree and Random Forest. We played
 
 We found that the manually Indexed Version with KNN Method,Min_Max_Scaler, One Neighbour and test_size(0.2) had accurate results and predictions.
 
-When we tried on examples it actually showed the right results with: 0.94 train & 0.34 test. We validated the KNN Predictions and verified that One Neighbour will have the highest results. 
-Train Scores: 
-
-[[0.44 0.44 0.44]
-
- [0.44 0.46 0.45]
-
- [0.66 0.68 0.64]
-
- [0.86 0.85 0.83]]
-
-Test Scores: 
-
-[[0.44 0.44 0.44]
-
- [0.44 0.41 0.43]
-
- [0.36 0.36 0.39]
-
- [0.43 0.41 0.44]]
-
-We evaluated our training set until now with: Accuracy 0.14 what is quite low so we need to find ways to improve it.
-Furthermore we are still working on implementing  the  predicted crowd_size into the Future Data, but have not been successful so far.
-Our current results for Future Data:
-
-0    	month_day  	label_class  	district_class
-
-1         2.16          	4.5               	1
-
-2         2.16          	5.5               	1
-
-… 
-
-392       	3.24          	6.1               	1
-
-393       	3.24          	6.1               	1
-
-394       	3.24          	5.5               	5  is  4
-  3
-
-[ 1  7  3  3  7  7  7  7  2  7  7  7  8  1  1  1  7  7  3  3  2  8  2  3  2  1  2  7  4  3  7  1  3  7  1  8  1  1  3  3  3 11 11  3 11  7  3  3   3  3  3  1  7  3  7  7  7  7  7  7  3  3  8  3  3  3  4  1  2  3  3  2  2  7  7  3  7  7  7 11 11  1  1  3  7  3  4  2  2  2  3  2  2  2  7  3  2  1  1  7  3  7  3  3  3 11  3  4  4  3  7  2  6  1  1  7  2 11 11 11  1  3  3  3  2  2  3  2  3  1  1  7  3  2  2  2  3  2  2  7  5  3  2  1  1  7  7  3  3  7  7  7  7  7  3  3  5  3  1  3  3  3  3  8 11 11  7  1  3  3 11 11  3  3  1  1  7  7  3  3  3  3  3  3  3  3  3  3  1  7  2  2  3  7  3  1  3  2  2  7  7  1  7  7  7  2  1  1  7  1  7  7  1  3  2  2  3  1  1  4  3  2  2  7  6  4  7  1  1  1  7  2  2  3  3  3  3  4  8  3  1  1  1  6  6  3  4  9  1  6  3  3  3  3  3  3  3  3  1  9  1  4  3  2  3  8  8  5  3  1  3  8  3  8  3  8  4  3  2  2  1  1  3  8  8  8  3  6  8  3  8  2  6  6  8  1  3  3  3  8  6  8  8  4  8  2  3  3  5  3  4  1  5  3  1  4  8  3  1  3  1  3  1  7  4  8  3  3  3  8  9  3  9  3  9  3  5  1  4  6  6  3  4  3  1  3  3  3  1  3  8  6  8  3  2  2  8  8  8  1  8  8  8  3  2  6  8  3  3  3  8  2  1  6  6  8  3  3  3  3  8  1  6  6  8  6  6  8  3  2  3  3  3  4]
-
+When we tried on examples it actually showed the right results with: 0.94 train & 0.34 test. We validated the KNN Predictions and verified that One Neighbour will have the highest results. We did not have time to Evaluate and implement it into a column but will try implementing that as soon as possible.
 
 ## Deep Learning
 
@@ -247,4 +208,4 @@ In conclusion, our project benefited from a comprehensive collaboration between 
 
 - UX: Tatiana Olar
 - WD: Aljoscha Beiers
-- DSAssets
+- DS: Rafael Saraiva

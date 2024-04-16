@@ -1,5 +1,5 @@
 <p align="center">
-<img src="./Documentation/Images/fmplogo.png" alt="Find My Protest Logo" width="400" height="400">
+<img src="./Assets/fmplogo.png" alt="Find My Protest Logo" width="400" height="400">
 </p>
 
 <h1 align="center">Find My Protest • Blog Post</h1>
@@ -43,10 +43,9 @@ I wanted to specify each protest with its name dates, location, and a small desc
 
 Thirdly, I made the high wireframing, User flow, and the fist logo finalized it.
 
-<img  src="./Documentation/Images/ux-wireframe-mana.jpg"  width="900px">
+<img  src="./Assets/ux-wireframe-mana.jpg"  width="900px">
 
 ### Weronika
-In collaboration with Mana, we developed a user persona to guide our design process (refer to the image above). I designed and distributed a survey to collect feedback and insights from the user's perspective. Additionally, I created an initial draft of the logo, to which Mana added the finishing touch—a fist—to align it with the theme of mass protests. To the high fidelity prototype I added some nice images that depicts context and tells the story from images. 
 
 &nbsp;
 &nbsp;
@@ -85,51 +84,116 @@ On the backend, the initial task was to determine the metrics to provide to the 
 
 The backend began by constructing mock data, sampling 150 past protests over a three-month period from the agreed source. This data was manually cleaned, its key-value pairs optimized, then converted to a JSON file for insertion.
 
-<img  src="./Documentation/Images/backend-mock.png"  width="900px">
+<img  src="./Assets/backend-mock.png"  width="900px">
 
 MongoDB was chosen as the database, with a Mongoose schema created to define the protest object model and key types for easy searchability. Additionally, the backend included logic to seed protest images from [Unsplash](https://unsplash.com/s/photos/protests) for each protest.
 
-<img  src="./Documentation/Images/backend-protest-schema.png"  width="500px">
+<img  src="./Assets/backend-protest-schema.png"  width="500px">
 
 Once the Protests collection was established and populated in the database, the backend constructed the API route /protest and its corresponding logic to query protest details for the frontend. The API route /search as well as its fetch logic was later added for the search bar. To ensure compatibility between search bar input types and the database, an input type validation was added on the backend.
 
-Following the provision of final data for past protests by the data science team, including crowd size predictions, the backend seamlessly integrated it into the database. Doing so, the key "crowd_size_name" was added to the Protest schema to enhance visualization of crowd size significance on the protest cards, as suggested by the WD mentor.
+Following the provision of final data for past protests by the data science team, which included a crowd size classification, the backend seamlessly integrated it into the database. Doing so, the key "crowd_size_name" was added to the Protest schema to enhance visualization of crowd size significance on the protest cards, as suggested by the WD mentor.
 
-<img  src="./Documentation/Images/backend-crowd.png"  width="500px">
+<img  src="./Assets/backend-crowd.png"  width="500px">
 
 Later, the future data received underwent slight cleaning and restructuring by the backend to align with the format of previously inserted past protest data. The backend then decided to combine both past and future protests into a unified chronological collection within the database, using therefore a single Mongoose schema and model to handle both datasets.
 
-In the protest schema, the backend introduced a boolean key labeled "isCrowdPredicted." This addition enabled the frontend to implement a logic for displaying crowd size predictions on future protest cards when the boolean value is set to "true."
+In the protest schema, the backend introduced a boolean key labeled "isCrowdPredicted". This addition enabled the frontend to implement a logic for displaying crowd size predictions on future protest cards when the boolean value is set to "true."
 
 To integrate future protest data, the database seed file was updated to incorporate insertion logic for the additional dataset. This ensured that both past and future protest JSON files, along with accompanying images, could be seamlessly inserted into the database.
 
 Finally, the backend opted for an unconventional approach to address the challenge of fetching future protest data. Given that the future data provided by the data science team was in the form of mock data and not accessible via an API, sorting the data using conventional methods like "Date.now()" posed difficulties. As a solution, specific dates were set in the fetching logic of future protests from the database, utilizing query parameters such as "next month" and "next week" with ISO dates. This approach ensured that the frontend could accurately simulate future events despite the constraints posed by the nature of the data received.
 
-<img  src="./Documentation/Images/backend-fetchdate.png"  width="700px">
+<img  src="./Assets/backend-fetchdate.png"  width="700px">
 
 In summary, this project offered valuable learning experiences for both frontend and backend, from data implementation to product visualization and usability, emphasizing to us the importance of effective teamwork and coordination in every stage of the development process.
 
 ## Data Science
 
-&nbsp;
-&nbsp;
-&nbsp;
+### Data decision
+
+The first month of the DS/DL tracks was about finding different data and testing it.
+Of course we also found competitors during that research and great inspirations of visualizing Data.
+We first had different international newspaper data but realized that it would not fit well together with the group. as we had already planned out Berlin specific tasks for WD & UX. When we decided on Berlin we had to look again at different sources.
+
+- Luckily we found with the help of the group: Versammlungsbehörde Data that shows upcoming protests in Berlin on the Website. Different People/Organisations have collected the Data from Versammlungsbehörde:
+
+  1. GitHub profile collects VBData per code every day in a JSONL file. ([Future Data](https://github.com/demodiff/berlin/tree/main/data%2Fjsonl))
+
+  2. Zenodo collected one time through Frag den Staat Data from VB.
+
+- Our second source we had found for international protests already. [ACLED](https://acleddata.com/early-warning/) Website collects Protest/Mob Violence/Riots for many countries from Newspapers. We could download 3 Years into the past with a free account and filtered it to Berlin.
+
+After finding the Data we planned to work with multiple sources. We started cleaning them but realized during a Mentor session, that it will be easier for us and more clear in the matter of statistics to focus on one data source. In that meeting we also decided to use Google as our main interaction platform as we had used Colab. Sheets, Docs. .. already. After setting this up it was easy to interact or show each other or the Mentor, code or work on a sheet together.
+
+After we decided for this specific Data (ACLED) we had to cut some of the DL's work we had planned on presenting (Visualization on a Map) We decided on one column for DL (the actual cut out from the article)
+and one for DS (crowd\_ size).
+
+### Cleaning
+
+DS/ DL was still working closely together to clean the column for DL and define main categories & subcategories the next weeks. We manually defined them and later also the Name(column for WD). Later when DL track was successful we could switch our Subcategories to their prediction.
+
+Next to it we started cleaning the rest of the Data. That included filtering out certain words from Crowd_column or changing it into the mean of two numbers that were given. We used fill NaN, Mean, replace(), split() and created our own Filters. We decided then to classify the crowd_size into 11 categories.
+
+<img  src="./Assets/ds-crowdsize1.jpg"  width="900px">
+
+Paula later used indexing on (main)category & Subcategory and district. they were all converted in to_numeric(). The event_date column was converted into .datetime(), .year, .month, .day, .weekday, month+day, and back to string[:3](f.e. FEB).
+
+<img  src="./Assets/ds-crowdsize2.jpg"  width="700px">
+
+We decided to cut out Mob Violence. Furthermore we included ProRightWing into the Analysation & Prediction but cut it out for the Website.
+
+### Analysation
+
+For the analysation part we used Matplotlib and Seaborn, it was fun to finally visualize our Data into Boxplots, Scatterplots and BarCharts. It was exciting to see how many layers you could add, with the hue, and different sizes of dots or other signs. Indexing the MainCategories and Subcategories helped to paint a better picture and show the connections.
+
+<img  src="./Assets/ds-analysation1.jpg"  width="800px">
+<img  src="./Assets/ds-analysation2.jpg"  width="800px">
+<img  src="./Assets/ds-analysation3.jpg"  width="800px">
+<img  src="./Assets/ds-analysation4.jpg"  width="800px">
+
+The visualizations helped us to define the components/features that were important to predict the crowd_size later.
+
+### Prediction
+
+The first process to prepare the data was to Encode the string columns and date column in to_numeric().
+We had two different approaches of Encoding: Irem took the road of Hot Encoding and Paula went with the before Indexed Version of Analysation.
+
+#### Features
+
+- Paula: took District, Month_Day and Subcategory as Features
+- Irem: took Event_Date, Mood, District, Main_Category and Subcategory
+
+We had first thought we would use MultiClass-Classification, but with a Mentor Session we decided to try different Methods like:
+KNearest Neighbor, Linear Regression, Decision Tree and Random Forest. We played around a bit with Neighbours, Alpha, Regression, test_size, random_state and the Min_Max_Scaler.Results were mostly around 0.40 - 0.60.
+
+We found that the manually Indexed Version with KNN Method,Min_Max_Scaler, One Neighbour and test_size(0.2) had accurate results and predictions.
+
+When we tried on examples it actually showed the right results with: 0.94 train & 0.34 test. We validated the KNN Predictions and verified that One Neighbour will have the highest results. We did not have time to Evaluate and implement it into a column but will try implementing that as soon as possible.
 
 ## Deep Learning
 
 As a deep learning team tasked with analyzing protest data in Berlin, I initially focused on the coordinates provided, hoping to map out future protest locations. Unfortunately, these coordinates only indicated the districts where protests were held, stopping my mapping ambitions.
 
-Undeterred, I shifted my attention to predicting protest categories based on event descriptions. Collaborating with our data science team, we meticulously categorized these descriptions, a crucial step in our project. Employing a powerful NLP algorithm known as zero-shot classification, specifically Facebook's BART Large MNLI model, we made significant strides in accurately predicting protest categories.
+<img  src="./Assets/dl-map.png"  width="700px">
 
+Undeterred, I shifted my attention to predicting protest categories based on event descriptions. Collaborating with our data science team, we meticulously categorized these descriptions, a crucial step in our project. Employing a powerful NLP algorithm known as zero-shot classification, specifically Facebook's BART Large MNLI model, we made significant strides in accurately predicting protest categories.
 However, we encountered a common hurdle: many event descriptions contained rich information, making it challenging for the algorithm to pinpoint a single category. Often, the correct category would rank second due to overlapping keywords with multiple target labels.
 
-To evaluate our model's performance, we constructed a sample ground truth for comparison. Through iterative experimentation, leveraging Python libraries such as Pandas, NumPy, Transformers, and Scikit-learn, we continually refined our approach to increase accuracy, F1 score, and recall. With each experiment, our metrics showed improvement, yet the model remained susceptible to change. To enhance accuracy further, we explored the possibility of utilizing even more granular sub-categories.
+<img  src="./Assets/dl-classification.png"  width="700px">
+
+To evaluate our model's performance, we constructed a sample ground truth for comparison. Through iterative experimentation, leveraging Python libraries such as Pandas, NumPy, Transformers, and Scikit-learn, we continually refined our approach to increase accuracy, F1 score, and recall.
+With each experiment, our metrics showed improvement, yet the model remained susceptible to change. To enhance accuracy further, we explored the possibility of utilizing even more granular sub-categories.
+
+<img  src="./Assets/dl-metrics.png"  width="700px">
 
 Our work produced important findings: there was a noteworthy rise in the number of climate change and conflict protests. This journey took place in the environments of Jupyter Notebook and Google Colab, highlighting the critical role that Python and its libraries play in our analytical activities.
 
+<img  src="./Assets/dl-predicted-categories.png"  width="350px">
+
 ## Conclusion
 
-In conclusion, our project benefited from a comprehensive collaboration between UX, web development, deep learning, and data science teams. The UX team conducted insightful user interviews, developed personas, and created wireframes to ensure a user-friendly interface. Meanwhile, the web development team successfully implemented frontend and backend functionalities, overcoming challenges in data rendering and integration. The deep learning team employed advanced NLP algorithms to predict protest categories, enhancing our understanding of protest trends. Through iterative experimentation and refinement, we improved model accuracy and identified significant rises in climate change and conflict protests. Overall, this project highlighted to us the value of interdisciplinary teamwork in delivering a data-driven, visually engaging, and socially meaningful platform.
+In conclusion, our project benefited from a comprehensive collaboration between UX, web development, deep learning, and data science teams. The UX team conducted insightful user interviews, developed personas, and created wireframes to ensure a user-friendly interface. Meanwhile, the Web Development team successfully implemented frontend and backend functionalities, overcoming challenges in data rendering and integration. The Data Science and Deep Learning teams collaborated to finalize the data selection before dividing into DL and DS. The Data Science team was able to successfully clean and analyze the data. Moreover, the DS team utilized KNearestNeighbor to generate logical predictions with accurate outcomes. The Deep Learning team employed advanced NLP algorithms to predict protest categories, enhancing our understanding of protest trends. Through iterative experimentation and refinement, we improved model accuracy and identified significant rises in climate change and conflict protests. Overall, this project highlighted to us the value of interdisciplinary teamwork in delivering a data-driven, visually engaging, and socially meaningful platform.
 
 ## Contributors
 
@@ -144,4 +208,4 @@ In conclusion, our project benefited from a comprehensive collaboration between 
 
 - UX: Tatiana Olar
 - WD: Aljoscha Beiers
-- DS/DL: Rafael Saraiva
+- DSAssets

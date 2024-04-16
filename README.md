@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/TechLabs-Berlin/ws24-mass-protest-across-countries/blob/a7c95d1e3fe282c3caeb075d799388e80e9adc1f/App/client/public/fmplogo.png" alt="Find My Protest Logo" width="400" height="400">
+    <img src="./Assets/fmplogo.png" alt="Find My Protest Logo" width="400" height="400">
 </p>
 
 <h1 align="center">Find My Protest</h1>
@@ -12,7 +12,7 @@
 
 ---
 
-Find my Protest is a platform which displays historical and future protest data, allowing users to find events in Berlin based on their search criteria. Additionally, through predictive analytics the platform shows crowd predictions of future protests, empowering users to make informed decisions and actively participate in events aligned with their values.
+Find My Protest is a platform which displays historical and future protest data, allowing users to find events in Berlin based on their search criteria. Additionally, through predictive analytics the platform shows crowd predictions of future protests, empowering users to make informed decisions and actively participate in events aligned with their values.
 
 ## Demo
 

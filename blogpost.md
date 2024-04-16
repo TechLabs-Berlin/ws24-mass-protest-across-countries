@@ -248,4 +248,4 @@ In conclusion, our project benefited from a comprehensive collaboration between 
 
 - UX: Tatiana Olar
 - WD: Aljoscha Beiers
-- DS: Rafael Saraiva
+- DS/DL: Rafael Saraiva

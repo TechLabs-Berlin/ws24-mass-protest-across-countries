@@ -35,7 +35,7 @@ Firstly, Weronika and I chose two people living in Berlin and we interviewed the
 
 | Mana Persona                                                          | Weronika Persona                                                         |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| <img src="./Documentation/Images/ux-persona-mana.jpg" width="450px" > | <img src="./Documentation/Images/ux-persona-weronika.png" width="450px"> |
+| <img src="./Assets/ux-persona-mana.jpg" width="450px" > | <img src="./Assets/ux-persona-weronika.png" width="450px"> |
 
 Secondly, I made a first draft of low wireframing to have an overall look at the mass protest website, and then, we checked it with the WD team to better grasp the overall look and the necessary options. So I have added the categories option for better accessibility for users to their relative and desired protests such as environment or finance section, etc. Moreover, I thought having a search area is a must, for the times that users already know which protest they want to attend but they don't know the exact location or time so, in this case, they can search the name of the protest and then the whole infos will pop up.
 
@@ -68,13 +68,13 @@ Initially, we explored rendering information using static templates like EJS, as
 
 | ProtestPage                                                                | SearchBar                                                               |
 | -------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <img src="./Documentation/Images/frontend-protestpage.png" width="450px" > | <img src="./Documentation/Images/frontend-searchbar.png" width="450px"> |
+| <img src="./Assets/frontend-protestpage.png" width="450px" > | <img src="./Assets/frontend-searchbar.png" width="450px"> |
 
 We styled all components primarily using the Bootstrap library, with additional CSS for the fonts, banner sizing and logo placement. Dynamic sub-components were implemented using React hooks like useState and useEffect, ensuring that the protest card results from the query selectors or the search bar were simultaneously updated on the page. We also incorporated buttons to clear the search or load more results at the bottom using said hooks.
 
 | Lower frame                                                             | Higher frame                                                            |
 | ----------------------------------------------------------------------- | ----------------------------------------------------------------------- |
-| <img src="./Documentation/Images/frontend-lowframe.png" width="450px" > | <img src="./Documentation/Images/frontend-highframe.png" width="450px"> |
+| <img src="./Assets/frontend-lowframe.png" width="450px" > | <img src="./Assets/frontend-highframe.png" width="450px"> |
 
 ### Backend
 

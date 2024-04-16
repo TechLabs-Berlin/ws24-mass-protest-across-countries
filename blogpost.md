@@ -35,11 +35,11 @@ During our initial brainstorming sessions, project members gathered insights and
 
 Firstly, Weronika and I chose two people living in Berlin and we interviewed them after that, we got a result(insights) from the interviews which showed us what our users needed. then both of us created personas and scenarios.
 
-| Mana Persona                                                          | Weronika Persona                                                         |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| <img src="./Documentation/Images/ux-persona-mana.jpg" width="450px" > | <img src="./Documentation/Images/ux-persona-weronika.png" width="450px"> |
+| Mana Persona                                            | Weronika Persona                                           |
+| ------------------------------------------------------- | ---------------------------------------------------------- |
+| <img src="./Assets/ux-persona-mana.jpg" width="450px" > | <img src="./Assets/ux-persona-weronika.png" width="450px"> |
 
-Secondly, I made a first draft of low wireframing to have an overall look at the mass protest website, and then, we checked it with the WD team to better grasp the overall look and the necessary options. So I have added the categories option for better accessibility for users to their relative and desired protests such as environment or finance section, etc. Moreover, I thought having a search area is a must, for the times that users already know which protest they want to attend but they don't know the exact location or time so, in this case, they can search the name of the protest and then the whole infos will pop up.
+Secondly, I made a first draft of low wireframing to have an overall look at the mass protest website, and then, we checked it with the WD team to better grasp the overall look and the necessary options. So I have added the categories option for better accessibility for users to their relative and desired protests such as environment or financ‚ section, etc. Moreover, I thought having a search area is a must, for the times that users already know which protest they want to attend but they don't know the exact location or time so, in this case, they can search the name of the protest and then the whole infos will pop up.
 
 I wanted to specify each protest with its name dates, location, and a small description of each protest then I put a star next to the name of the protest that users by clicking on the stars can add to their favorite protest to attend. Of course, having an account is very important as users can add to their favorite protests to attend have a reminder, and create a username and password.
 
